@@ -1,0 +1,9 @@
+yarn/
+coc/
+configstore/
+firebase/
+helix/
+lvim/
+nvim_backup/
+simple-update-notifier/
+solana/
