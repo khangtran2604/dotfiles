@@ -12,6 +12,34 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+
+  -- rust
+  lspconfig.rust_analyzer.setup({
+      on_attach=on_attach,
+      capabilities = capabilities,
+      filetypes = {
+        "rust",
+      },
+      settings = {
+          ["rust-analyzer"] = {
+              imports = {
+                  granularity = {
+                      group = "module",
+                  },
+                  prefix = "self",
+              },
+              cargo = {
+                  buildScripts = {
+                      enable = true,
+                  },
+              },
+              procMacro = {
+                  enable = true
+              },
+          }
+      }
+  })
+
 	-- lua
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
