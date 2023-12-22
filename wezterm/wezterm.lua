@@ -13,7 +13,10 @@ end
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 -- Font
-config.font = wezterm.font("Hack Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" })
+config.font = wezterm.font_with_fallback {
+  'Hack Nerd Font',
+  'FiraCode Nerd Font',
+}
 config.font_size = 13
 
 -- Key Mappings
