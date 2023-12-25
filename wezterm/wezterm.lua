@@ -14,10 +14,10 @@ config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 -- Font
 config.font = wezterm.font_with_fallback {
-  'Hack Nerd Font',
+  "MonoLisa Static", 
   'FiraCode Nerd Font',
 }
-config.font_size = 13
+config.font_size = 14
 
 -- Key Mappings
 config.leader = { key = "a", mods = "CTRL" }
