@@ -1,5 +1,12 @@
 local mapkey = require("util.keymapper").mapvimkey
 
+-- Reuse what we paste
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
 -- Visual actions edit
 vim.keymap.set("v", "<leader>r", ": s/")
 
@@ -7,7 +14,7 @@ vim.keymap.set("v", "<leader>r", ": s/")
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
 -- File actions
-vim.keymap.set("n", "<leader>s", ":w<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", { silent = true })
 vim.keymap.set("n", ";x", ":%bd|e#<CR>", { silent = true })
 vim.keymap.set("n", "<leader>r", "ggVG:s/")
 vim.keymap.set("n", ";v", "V:s/")
