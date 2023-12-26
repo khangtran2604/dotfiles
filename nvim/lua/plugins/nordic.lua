@@ -1,8 +1,8 @@
 return {
-	-- "EdenEast/nightfox.nvim",
+	-- "AlexvZyl/nordic.nvim",
 	-- lazy = false,
 	-- priority = 1000,
 	-- config = function()
-	-- 	vim.cmd("colorscheme nightfox")
+	-- 	require("nordic").load()
 	-- end,
 }
