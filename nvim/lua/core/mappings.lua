@@ -20,6 +20,8 @@ M.general = {
 
   n = {
     ["<leader>s"] = { "<cmd> :w <CR>", "Save file" },
+    ["<leader>co"] = { "<cmd> :%bd|e# <CR>", "Close other buffers" },
+
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
