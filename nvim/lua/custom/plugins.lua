@@ -135,10 +135,30 @@ local plugins = {
     keys = {
       {
         "<leader>j",
-        "<cmd>HopChar2AC<CR>",
+        "<cmd>:HopChar2<CR>",
         desc = "Hop find 2 characters",
       },
     },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          require("treesitter-context").go_to_context(vim.v.count1)
+        end,
+        desc = "Treesitter Context jump to current context",
+      },
+    },
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    lazy = false,
+    config = function()
+      require "custom.configs.symbols-outline"
+    end,
   },
 }
 
