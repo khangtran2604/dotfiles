@@ -195,6 +195,18 @@ local plugins = {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  -- Auto generate documents
+  {
+    "kkoomen/vim-doge",
+    lazy = false,
+    keys = {
+      {
+        "<leader>gd",
+        "<Plug>(doge-generate)",
+        desc = "Auto-generate document",
+      },
+    },
+  },
   -- Rust Plugins
   {
     "simrat39/rust-tools.nvim",
