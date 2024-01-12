@@ -10,3 +10,11 @@ os:
   open: "code {{filename}}"
   editPreset: "nvim"
 ```
+
+### Config for vim-doge(Auto-generating document)
+
+- Run in "command mode" with the below command:
+
+```
+:call doge#install()
+```
