@@ -8,6 +8,9 @@ local sources = {
   formatting.stylua,
 
   lint.shellcheck,
+
+  null_ls.builtins.formatting.gofmt,
+  null_ls.builtins.formatting.goimports_reviser,
 }
 
 null_ls.setup {
