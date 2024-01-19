@@ -4,8 +4,6 @@ local M = {}
 
 M.general = {
   i = {
-    -- change to Normal Mode from Insert Mode
-    ["jj"] = { "<ESC>", "Switch to Normal from Insert" },
 
     -- go to  beginning and end
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
@@ -19,7 +17,6 @@ M.general = {
   },
 
   n = {
-    ["<leader>s"] = { "<cmd> :w <CR>", "Save file" },
     ["<leader>co"] = { "<cmd> :%bd|e# <CR>", "Close other buffers" },
 
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
@@ -30,7 +27,7 @@ M.general = {
     ["<C-k>"] = { "<C-w>k", "Window up" },
 
     -- save
-    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    -- ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
@@ -279,14 +276,14 @@ M.telescope = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>fa"] = {
-      "<cmd> Telescope find_files find_command=rg,--follow,--ignore,--hidden,--files,-u <CR>",
+      "<cmd> Telescope find_files find_command=rg,--ignore,--hidden,--files,-u <CR>",
       "Find all",
     },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<C-s>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<leader>;"] = { "<cmd> Telescope resume <CR>", "Resume finding result" },
 
     -- git

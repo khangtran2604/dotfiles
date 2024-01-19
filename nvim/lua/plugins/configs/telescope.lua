@@ -2,15 +2,26 @@ local options = {
   defaults = {
     vimgrep_arguments = {
       "rg",
-      "-L",
       "--color=never",
       "--no-heading",
       "--with-filename",
       "--line-number",
       "--column",
       "--smart-case",
+      "--hidden",
+      "--glob=!.git/",
     },
-    prompt_prefix = "   ",
+    -- vimgrep_arguments = {
+    --   "rg",
+    --   "-L",
+    --   "--color=never",
+    --   "--no-heading",
+    --   "--with-filename",
+    --   "--line-number",
+    --   "--column",
+    --   "--smart-case",
+    -- },
+    prompt_prefix = "   ",
     selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -47,9 +58,28 @@ local options = {
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
     },
+    extensions = {
+      fzf = {
+        fuzzy = true, -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      },
+      frecency = {
+        default_workspace = "CWD",
+        show_scores = true,
+        show_unindexed = true,
+        disable_devicons = false,
+        ignore_patterns = {
+          "*.git/*",
+          "*/tmp/*",
+          "*/lua-language-server/*",
+        },
+      },
+    },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "fzf", "refactoring", "frecency" },
 }
 
 return options

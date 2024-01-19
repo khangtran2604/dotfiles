@@ -52,6 +52,11 @@ opt.updatetime = 250
 opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
+g.maplocalleader = " "
+
+opt.incsearch = true
+opt.fileencoding = "utf-8"
+opt.hlsearch = true
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
