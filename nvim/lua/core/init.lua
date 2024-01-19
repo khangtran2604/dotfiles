@@ -3,10 +3,14 @@ local g = vim.g
 local config = require("core.utils").load_config()
 
 -------------------------------------- globals -----------------------------------------
+g.mapleader = " "
+g.maplocalleader = " "
 g.nvchad_theme = config.ui.theme
 g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
@@ -50,9 +54,6 @@ opt.updatetime = 250
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
-
-g.mapleader = " "
-g.maplocalleader = " "
 
 opt.incsearch = true
 opt.fileencoding = "utf-8"
