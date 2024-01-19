@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "meuter/lualine-so-fancy.nvim",
+    "arkav/lualine-lsp-progress",
   },
   enabled = true,
   lazy = false,
@@ -10,7 +11,7 @@ return {
     local icons = require "custom.configs.icons"
     require("lualine").setup {
       options = {
-        theme = "ayu_dark",
+        theme = "everforest",
         globalstatus = true,
         icons_enabled = true,
         -- component_separators = { left = "│", right = "│" },
@@ -45,6 +46,7 @@ return {
           },
           { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
           { "fancy_searchcount" },
+          "lsp_progress",
         },
         lualine_x = {
           "fancy_lsp_servers",
