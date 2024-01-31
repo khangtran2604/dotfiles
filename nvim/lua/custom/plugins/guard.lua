@@ -17,7 +17,7 @@ return {
 
 
     -- Format for rust file
-    ft('lua'):fmt('lsp')
+    ft('rust'):fmt('lsp')
         :append('rustfmt')
 
     -- Check code spelling for all file types

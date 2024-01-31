@@ -48,6 +48,12 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('i', 'jj', "<ESC>", { desc = 'Switch to Normal Mode from Insert Mode', silent = true })
 vim.keymap.set('i', 'jk', "<ESC>", { desc = 'Switch to Normal Mode from Insert Mode', silent = true })
 
+-- navigate within insert mode
+vim.keymap.set('i', '<C-h>', "<Left>")
+vim.keymap.set('i', '<C-l>', "<Right>")
+vim.keymap.set('i', '<C-j>', "<Down>")
+vim.keymap.set('i', '<C-k>', "<Up>")
+
 vim.keymap.set('n', '<leader>wf', "<cmd> :w!<CR>", { desc = 'Fast write file', silent = true })
 
 -- Format Document
