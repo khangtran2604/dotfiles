@@ -72,22 +72,24 @@ vim.keymap.set('v', '>', '>gv', { silent = true, noremap = true })
 vim.keymap.set('v', '<leader>r', '"hy :%s/<C-r>h/', { desc = 'Relace all with selected paragraph' })
 
 -- Pane and Window Navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h') -- Navigate Left
-vim.keymap.set('n', '<C-j>', '<C-w>j') -- Navigate Down
-vim.keymap.set('n', '<C-k>', '<C-w>k') -- Navigate Up
-vim.keymap.set('n', '<C-l>', '<C-w>l') -- Navigate Right
-vim.keymap.set('t', '<C-h>', 'wincmd h') -- Navigate Left
-vim.keymap.set('t', '<C-j>', 'wincmd j') -- Navigate Down
-vim.keymap.set('t', '<C-k>', 'wincmd k') -- Navigate Up
-vim.keymap.set('t', '<C-l>', 'wincmd l') -- Navigate Right
-vim.keymap.set('n', '<C-h>', 'TmuxNavigateLeft') -- Navigate Left
-vim.keymap.set('n', '<C-j>', 'TmuxNavigateDown') -- Navigate Down
-vim.keymap.set('n', '<C-k>', 'TmuxNavigateUp') -- Navigate Up
+vim.keymap.set('n', '<C-h>', '<C-w>h')            -- Navigate Left
+vim.keymap.set('n', '<C-j>', '<C-w>j')            -- Navigate Down
+vim.keymap.set('n', '<C-k>', '<C-w>k')            -- Navigate Up
+vim.keymap.set('n', '<C-l>', '<C-w>l')            -- Navigate Right
+vim.keymap.set('t', '<C-h>', 'wincmd h')          -- Navigate Left
+vim.keymap.set('t', '<C-j>', 'wincmd j')          -- Navigate Down
+vim.keymap.set('t', '<C-k>', 'wincmd k')          -- Navigate Up
+vim.keymap.set('t', '<C-l>', 'wincmd l')          -- Navigate Right
+vim.keymap.set('n', '<C-h>', 'TmuxNavigateLeft')  -- Navigate Left
+vim.keymap.set('n', '<C-j>', 'TmuxNavigateDown')  -- Navigate Down
+vim.keymap.set('n', '<C-k>', 'TmuxNavigateUp')    -- Navigate Up
 vim.keymap.set('n', '<C-l>', 'TmuxNavigateRight') -- Navigate Right
 
 -- Keep cursor centered when scrolling up/down
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Keep cursor centered when scrolling down', noremap = true, silent = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Keep cursor centered when scrolling up', noremap = true, silent = true })
+vim.keymap.set('n', '<C-d>', '<C-d>zz',
+  { desc = 'Keep cursor centered when scrolling down', noremap = true, silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz',
+  { desc = 'Keep cursor centered when scrolling up', noremap = true, silent = true })
 
 -- Copy everything between { and } including the brackets
 vim.keymap.set('n', 'YY', 'va{Vy', { desc = 'Keep cursor centered when scrolling up', noremap = true, silent = true })
@@ -97,8 +99,10 @@ vim.keymap.set('n', 'H', '^', { desc = 'Move to start of line', noremap = true, 
 vim.keymap.set('n', 'L', 'g_', { desc = 'Move to end of line', noremap = true, silent = true })
 
 -- Move selected line / block of text up/down in visual mode
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected line / block of text down in visual mode', noremap = true, silent = true })
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected line / block of text up in visual mode', noremap = true, silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv",
+  { desc = 'Move selected line / block of text down in visual mode', noremap = true, silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv",
+  { desc = 'Move selected line / block of text up in visual mode', noremap = true, silent = true })
 
 -- paste over currently selected text without yanking it
 vim.keymap.set('v', 'p', '"_dp', { noremap = true, silent = true })
@@ -148,32 +152,32 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
+  -- {
+  --   -- Autocompletion
+  --   'hrsh7th/nvim-cmp',
+  --   dependencies = {
+  --     -- Snippet Engine & its associated nvim-cmp source
+  --     'L3MON4D3/LuaSnip',
+  --     'saadparwaiz1/cmp_luasnip',
+  --
+  --     -- Adds LSP completion capabilities
+  --     'hrsh7th/cmp-nvim-lsp',
+  --     'hrsh7th/cmp-path',
+  --
+  --     -- Adds a number of user-friendly snippets
+  --     'rafamadriz/friendly-snippets',
+  --   },
+  -- },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -258,6 +262,8 @@ require('lazy').setup({
       require('onedark').setup {
         -- Set a style preset. 'dark' is default.
         style = 'darker', -- dark, darker, cool, deep, warm, warmer, light
+        transparent = true,
+        term_colors = true
       }
       require('onedark').load()
     end,
@@ -477,7 +483,8 @@ vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]e
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fa', '<cmd> Telescope find_files find_command=rg,--ignore,--hidden,--files,-u <CR>', { desc = '[F]ind [A]ll [F]iles' })
+vim.keymap.set('n', '<leader>fa', '<cmd> Telescope find_files find_command=rg,--ignore,--hidden,--files,-u <CR>',
+  { desc = '[F]ind [A]ll [F]iles' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })

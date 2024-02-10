@@ -34,3 +34,8 @@ dim.blue = '0x61afef'
 dim.magenta = '0xc678dd'
 dim.cyan = '0x56b6c2'
 dim.white = '0x828791'
+
+[window]
+decorations = 'Transparent'
+opacity = 0.9
+blur = true
