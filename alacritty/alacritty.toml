@@ -57,6 +57,6 @@ bright.cyan = '#83c092'
 bright.white = '#d3c6aa'
 
 [window]
-decorations = 'Transparent'
-opacity = 0.95
+# decorations = 'Transparent'
+opacity = 0.85
 blur = true
