@@ -51,9 +51,9 @@ maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog"
 -- Manage Buffers
 maps.n["<leader>c"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("astronvim.utils.buffer").close(0, true) end, desc = "Force close buffer" }
-maps.n["]b"] =
+maps.n["<Tab>"] =
   { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
-maps.n["[b"] = {
+maps.n["<S-Tab>"] = {
   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Previous buffer",
 }
@@ -251,37 +251,37 @@ if is_available "telescope.nvim" then
   }
   maps.n["<leader>gt"] =
     { function() require("telescope.builtin").git_status { use_file_path = true } end, desc = "Git status" }
-  maps.n["<leader>f<CR>"] = { function() require("telescope.builtin").resume() end, desc = "Resume previous search" }
+  maps.n["<leader>;"] = { function() require("telescope.builtin").resume() end, desc = "Resume previous search" }
   maps.n["<leader>f'"] = { function() require("telescope.builtin").marks() end, desc = "Find marks" }
   maps.n["<leader>f/"] =
     { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Find words in current buffer" }
-  maps.n["<leader>fa"] = {
-    function()
-      local cwd = vim.fn.stdpath "config" .. "/.."
-      local search_dirs = {}
-      for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
-        if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
-        if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
-      end
-      if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
-        utils.notify("No user configuration files found", vim.log.levels.WARN)
-      else
-        if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
-        require("telescope.builtin").find_files {
-          prompt_title = "Config Files",
-          search_dirs = search_dirs,
-          cwd = cwd,
-          follow = true,
-        } -- call telescope
-      end
-    end,
-    desc = "Find AstroNvim config files",
-  }
+  -- maps.n["<leader>fa"] = {
+  --   function()
+  --     local cwd = vim.fn.stdpath "config" .. "/.."
+  --     local search_dirs = {}
+  --     for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
+  --       if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
+  --       if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
+  --     end
+  --     if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
+  --       utils.notify("No user configuration files found", vim.log.levels.WARN)
+  --     else
+  --       if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
+  --       require("telescope.builtin").find_files {
+  --         prompt_title = "Config Files",
+  --         search_dirs = search_dirs,
+  --         cwd = cwd,
+  --         follow = true,
+  --       } -- call telescope
+  --     end
+  --   end,
+  --   desc = "Find AstroNvim config files",
+  -- }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" }
   maps.n["<leader>fc"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
   maps.n["<leader>fC"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
   maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" }
-  maps.n["<leader>fF"] = {
+  maps.n["<leader>fa"] = {
     function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
     desc = "Find all files",
   }
