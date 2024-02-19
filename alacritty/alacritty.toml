@@ -1,0 +1,62 @@
+[font]
+normal = { family = "MonoLisaVariable Nerd Font", style = "Regular"}
+size = 13
+
+[colors]
+# primary.background = '0x1e2127'
+# primary.foreground = '0xabb2bf'
+# primary.bright_foreground = '0xe6efff'
+#
+# normal.black = '0x1e2127'
+# normal.red = '0xe06c75'
+# normal.green = '0x98c379'
+# normal.yellow = '0xd19a66'
+# normal.blue = '0x61afef'
+# normal.magenta = '0xc678dd'
+# normal.cyan = '0x56b6c2'
+# normal.white = '0x828791'
+#
+# bright.black = '0x5c6370'
+# bright.red = '0xe06c75'
+# bright.green = '0x98c379'
+# bright.yellow = '0xd19a66'
+# bright.blue = '0x61afef'
+# bright.magenta = '0xc678dd'
+# bright.cyan = '0x56b6c2'
+# bright.white = '0xe6efff'
+#
+#
+# dim.black = '0x5c6370'
+# dim.red = '0xe06c75'
+# dim.green = '0x98c379'
+# dim.yellow = '0xd19a66'
+# dim.blue = '0x61afef'
+# dim.magenta = '0xc678dd'
+# dim.cyan = '0x56b6c2'
+# dim.white = '0x828791'
+
+primary.background = '#272e33'
+primary.foreground = '#d3c6aa'
+
+normal.black = '#414b50'
+normal.red = '#e67e80'
+normal.green = '#a7c080'
+normal.yellow = '#dbbc7f'
+normal.blue = '#7fbbb3'
+normal.magenta = '#d699b6'
+normal.cyan = '#83c092'
+normal.white = '#d3c6aa'
+
+bright.black = '#475258'
+bright.red = '#e67e80'
+bright.green = '#a7c080'
+bright.yellow = '#dbbc7f'
+bright.blue = '#7fbbb3'
+bright.magenta = '#d699b6'
+bright.cyan = '#83c092'
+bright.white = '#d3c6aa'
+
+[window]
+# decorations = 'Transparent'
+opacity = 0.85
+blur = true
