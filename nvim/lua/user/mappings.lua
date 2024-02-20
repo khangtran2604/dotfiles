@@ -57,6 +57,12 @@ return {
       desc = "Select Harpoon 4",
     },
 
+    -- Todo List
+    ["<leader>lt"] = {
+      "<cmd>TodoTelescope<CR>",
+      desc = "Show Todo List",
+    },
+
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()
