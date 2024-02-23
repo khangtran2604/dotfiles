@@ -5,6 +5,8 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+local lspkind = require 'lspkind'
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -44,9 +46,17 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
+    { name = 'copilot', group_index = 2 },
+    { name = 'nvim_lsp', group_index = 2 },
+    { name = 'luasnip', group_index = 2 },
+    { name = 'path', group_index = 2 },
+  },
+  formatting = {
+    format = lspkind.cmp_format {
+      mode = 'symbol',
+      max_width = 50,
+      symbol_map = { Copilot = '' },
+    },
   },
 }
 

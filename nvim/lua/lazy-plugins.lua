@@ -58,6 +58,8 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+      -- vs-code like pictograms
+      'onsails/lspkind.nvim',
     },
   },
 
