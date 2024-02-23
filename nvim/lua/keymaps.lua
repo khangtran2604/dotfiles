@@ -8,6 +8,12 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Clear highlights
+vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { desc = 'Clear highlights' })
+
+-- Delete without yank
+vim.keymap.set({ 'n', 'v' }, '<leader>dd', [["_d]], { desc = 'Delete without yanking' })
+
 -- Fast escape
 vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'jk', '<esc>')
