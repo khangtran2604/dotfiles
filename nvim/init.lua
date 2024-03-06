@@ -79,7 +79,7 @@ require 'cmp-setup'
 local g = vim.g
 
 if g.neovide then
-  g.neovide_transparency = 0.9
+  g.neovide_transparency = 0.7
   g.neovide_window_blurred = true
   g.neovide_refresh_rate = 144
   g.neovide_cursor_vfx_mode = 'ripple'

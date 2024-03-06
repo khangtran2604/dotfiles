@@ -18,7 +18,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>dd', [["_d]], { desc = 'Delete without yan
 vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'jk', '<esc>')
 -- Fast saving
-vim.keymap.set('n', '<leader>wf', '<cmd>w<cr>', { desc = 'Fast saving', silent = true })
+vim.keymap.set('n', '<leader>wf', '<cmd>w<cr>', { desc = 'Fast saving', silent = true, noremap = true })
 -- Fast quit
 vim.keymap.set('n', '<leader>q', '<cmd>confirm q<cr>', { desc = 'Fast quit' })
 -- Fast quit all
