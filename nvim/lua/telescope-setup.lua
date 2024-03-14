@@ -100,8 +100,8 @@ end, { desc = '[F]ind words in all files' })
 -- vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>;', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
-vim.keymap.set('n', '<leader>ft', function()
-  require('telescope.builtin').colorscheme { enable_preview = true }
-end, { desc = '[F]ind Theme' })
+-- vim.keymap.set('n', '<leader>ft', function()
+--   require('telescope.builtin').colorscheme { enable_preview = true }
+-- end, { desc = '[F]ind Theme' })
 
 -- vim: ts=2 sts=2 sw=2 et
