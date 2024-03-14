@@ -99,6 +99,9 @@ vim.keymap.set('n', '[w', function()
   require('illuminate').goto_next_reference()
 end, { desc = 'Goto previous reference' })
 
+-- Todo Comments
+vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = '[F]ind Todos' })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
