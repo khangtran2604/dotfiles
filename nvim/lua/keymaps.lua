@@ -96,7 +96,7 @@ vim.keymap.set('n', ']w', function()
   require('illuminate').goto_next_reference()
 end, { desc = 'Goto next reference' })
 vim.keymap.set('n', '[w', function()
-  require('illuminate').goto_next_reference()
+  require('illuminate').goto_prev_reference()
 end, { desc = 'Goto previous reference' })
 
 -- Todo Comments
