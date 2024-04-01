@@ -15,7 +15,7 @@ vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { desc = 'Clear highlights' })
 vim.keymap.set({ 'n', 'v' }, '<leader>dd', [["_d]], { desc = 'Delete without yanking' })
 
 -- Fast escape
-vim.keymap.set('i', 'jj', '<esc>')
+-- vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'jk', '<esc>')
 -- Fast saving
 vim.keymap.set('n', '<leader>wf', '<cmd>w<cr>', { desc = 'Fast saving', silent = true, noremap = true })
