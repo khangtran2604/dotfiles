@@ -79,7 +79,7 @@ require('mason-lspconfig').setup()
 
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
   -- rust_analyzer = {
   --   filetypes = { 'rust' },
