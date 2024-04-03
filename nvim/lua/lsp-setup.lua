@@ -79,7 +79,7 @@ require('mason-lspconfig').setup()
 
 local servers = {
   -- clangd = {},
-  gopls = {},
+  -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {
   --   filetypes = { 'rust' },
@@ -132,8 +132,29 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- Rust
 local util = require 'lspconfig.util'
+
+-- Golang
+require('lspconfig').gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+-- Rust
 --
 -- require('lspconfig').rust_analyzer.setup {
 --   filetypes = { 'rust' },

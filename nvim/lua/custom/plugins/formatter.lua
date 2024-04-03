@@ -17,7 +17,7 @@ return {
         typescript = { { 'prettierd', 'prettier' } },
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
-        go = { { 'goimports', 'gofumpt' } },
+        go = { { 'gofumpt', 'goimports-reviser' } },
       },
       format_on_save = {
         lsp_fallback = true,
