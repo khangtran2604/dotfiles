@@ -16,14 +16,14 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>la', function()
+  nmap('<leader>ca', function()
     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
   end, '[L]ist [C]ode [A]ctions')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+  -- nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, '[L]ist [D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
@@ -48,16 +48,19 @@ end
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  -- ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   -- ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+
   -- Rebuild my own definitions
+  ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
-  ['<leader>T'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  -- ['<leader>T'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  ['<leader>d'] = { name = '[D]ebug', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -81,24 +84,8 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {
-  --   filetypes = { 'rust' },
-  --   root_dir = util.root_pattern 'Cargo.toml',
-  --   settings = {
-  --     ['rust-analyzer'] = {
-  --       cargo = {
-  --         allFeatures = true,
-  --       },
-  --     },
-  --   },
-  -- },
-  tsserver = {},
   html = {},
   cssls = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {
@@ -108,6 +95,10 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+
+  -- Docker
+  dockerls = {},
+  docker_compose_language_service = {},
 }
 
 -- Setup neovim lua configuration
@@ -137,6 +128,56 @@ mason_lspconfig.setup_handlers {
 
 local util = require 'lspconfig.util'
 
+-- JSON
+require('lspconfig').jsonls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { 'json', 'json5', 'jsonc' },
+  on_new_config = function(new_config)
+    new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+    vim.list_extend(new_config.settings.json.schemas, require('schemastore').json.schemas())
+  end,
+  settings = {
+    json = {
+      format = {
+        enable = true,
+      },
+      validate = { enable = true },
+    },
+  },
+}
+
+-- JavaScript/TypeScript
+require('lspconfig').tsserver.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { 'js', 'jsx', 'ts', 'tsx' },
+  ---@diagnostic disable-next-line: missing-fields
+  settings = {
+    completions = {
+      completeFunctionCalls = true,
+    },
+  },
+}
+vim.keymap.set('n', '<leader>co', function()
+  vim.lsp.buf.code_action {
+    apply = true,
+    context = {
+      only = { 'source.organizeImports.ts' },
+      diagnostics = {},
+    },
+  }
+end, { desc = 'Organize Imports' })
+vim.keymap.set('n', '<leader>cR', function()
+  vim.lsp.buf.code_action {
+    apply = true,
+    context = {
+      only = { 'source.removeUnused.ts' },
+      diagnostics = {},
+    },
+  }
+end, { desc = 'Remove Unused Imports' })
+
 -- Golang
 require('lspconfig').gopls.setup {
   on_attach = on_attach,
@@ -146,13 +187,38 @@ require('lspconfig').gopls.setup {
   root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
   settings = {
     gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
+      gofumpt = true,
+      codelenses = {
+        gc_details = false,
+        generate = true,
+        regenerate_cgo = true,
+        run_govulncheck = true,
+        test = true,
+        tidy = true,
+        upgrade_dependency = true,
+        vendor = true,
       },
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+      analyses = {
+        fieldalignment = true,
+        nilness = true,
+        unusedparams = true,
+        unusedwrite = true,
+        useany = true,
+      },
+      usePlaceholders = true,
+      completeUnimported = true,
       staticcheck = true,
+      directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+      semanticTokens = true,
     },
   },
 }

@@ -81,5 +81,12 @@ return {
       end,
       desc = 'Stop',
     },
+    {
+      '<leader>td',
+      function()
+        require('neotest').run.run { strategy = 'dap' }
+      end,
+      desc = 'Debug Nearest',
+    },
   },
 }
