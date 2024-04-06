@@ -33,8 +33,8 @@ return {
       end,
     })
 
-    vim.keymap.set('n', '<leader>lt', function()
+    vim.keymap.set('n', '<leader>cl', function()
       lint.try_lint()
-    end, { desc = 'Linting document' })
+    end, { desc = '[C]ode linting document' })
   end,
 }

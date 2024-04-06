@@ -75,7 +75,7 @@ vim.keymap.set('n', '<leader>fz', function()
     winblend = 10,
     previewer = false,
   })
-end, { desc = '[/] Fuzzily search in current buffer' })
+end, { desc = 'Fuzzily find in current buffer' })
 
 -- local function telescope_live_grep_open_files()
 --   require('telescope.builtin').live_grep {
@@ -83,28 +83,25 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 --     prompt_title = 'Live Grep in Open Files',
 --   }
 -- end
--- vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Find [G]it [F]iles' })
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Find Git Files' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fa', function()
   require('telescope.builtin').find_files { hidden = true, no_ignore = true }
-end, { desc = '[F]ind [A]ll [F]iles' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
--- vim.keymap.set('n', '<leader>fW', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+end, { desc = 'Find All Files' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Find Help' })
+vim.keymap.set('n', '<leader>fw', require('telescope.builtin').live_grep, { desc = 'Find by Grep' })
 vim.keymap.set('n', '<leader>fW', function()
   require('telescope.builtin').live_grep {
     additional_args = function(args)
       return vim.list_extend(args, { '--hidden', '--no-ignore' })
     end,
   }
-end, { desc = '[F]ind words in all files' })
--- vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
+end, { desc = 'Find words in all files' })
+vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Find Diagnostics' })
 vim.keymap.set('n', '<leader>;', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
--- vim.keymap.set('n', '<leader>ft', function()
---   require('telescope.builtin').colorscheme { enable_preview = true }
--- end, { desc = '[F]ind Theme' })
+vim.keymap.set('n', '<leader>fT', function()
+  require('telescope.builtin').colorscheme { enable_preview = true }
+end, { desc = 'Find Theme' })
 
 -- vim: ts=2 sts=2 sw=2 et

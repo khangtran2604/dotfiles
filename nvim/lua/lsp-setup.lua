@@ -15,7 +15,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>crn', vim.lsp.buf.rename, '[C]ode rename')
   nmap('<leader>ca', function()
     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
   end, '[L]ist [C]ode [A]ctions')
@@ -23,9 +23,7 @@ local on_attach = function(_, bufnr)
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  -- nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, '[L]ist [D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, '[L]ist document symbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -33,11 +31,6 @@ local on_attach = function(_, bufnr)
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -47,26 +40,43 @@ end
 
 -- document existing key chains
 require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  -- ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  -- ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-
   -- Rebuild my own definitions
+  -- Buffer
   ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
-  -- ['<leader>T'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  -- Coding
+  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  ['<leader>cr'] = { name = 'Rename/Replace', _ = 'which_key_ignore' },
+  ['<leader>cg'] = { name = 'Generate', _ = 'which_key_ignore' },
+  -- Debugging
   ['<leader>d'] = { name = '[D]ebug', _ = 'which_key_ignore' },
+  -- Finding
+  ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+  -- Gits
+  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>gh'] = { name = 'Hunk', _ = 'which_key_ignore' },
+  ['<leader>gt'] = { name = 'Toggle', _ = 'which_key_ignore' },
+  -- Harpoon
+  ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
+  -- Listing
+  ['<leader>l'] = { name = '[L]ist', _ = 'which_key_ignore' },
+  -- Testing
+  ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
+  -- Toggling
+  ['<leader>T'] = { name = '[T]oggling', _ = 'which_key_ignore' },
+  -- UI
+  ['<leader>u'] = { name = '[U]ser Interface', _ = 'which_key_ignore' },
+  ['<leader>us'] = { name = 'Splitting', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
 require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
-  ['<leader>h'] = { 'Git [H]unk' },
+
+  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  ['<leader>cr'] = { name = 'Rename/Replace', _ = 'which_key_ignore' },
+
+  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>gh'] = { name = 'Hunk', _ = 'which_key_ignore' },
 }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order

@@ -6,8 +6,8 @@ return {
   },
   keys = {
     {
-      '<leader>lg',
-      '<cmd> LazyGit <CR>',
+      '<leader>gl',
+      ':LazyGit<CR>',
       desc = 'Open LazyGit',
     },
   },

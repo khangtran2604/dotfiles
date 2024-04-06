@@ -18,25 +18,23 @@ vim.keymap.set({ 'n', 'v' }, '<leader>dd', [["_d]], { desc = 'Delete without yan
 -- vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'jk', '<esc>')
 -- Fast saving
-vim.keymap.set('n', '<leader>wf', '<cmd>w<cr>', { desc = 'Fast saving', silent = true, noremap = true })
+vim.keymap.set('n', '<leader>wf', ':w<cr>', { desc = 'Fast saving', silent = true, noremap = true })
 -- Fast quit
 vim.keymap.set('n', '<leader>q', '<cmd>confirm q<cr>', { desc = 'Fast quit' })
 -- Fast quit all
 vim.keymap.set('n', '<leader>Q', '<cmd>confirm qall<cr>', { desc = 'Fast quit all' })
--- Fast new file
-vim.keymap.set('n', '<leader>nf', '<cmd>enew<cr>', { desc = 'New file' })
 -- Split
-vim.keymap.set('n', '<leader>sv', '<cmd>vsplit<cr>', { desc = 'Vertical split' })
-vim.keymap.set('n', '<leader>sh', '<cmd>split<cr>', { desc = 'Horizontal split' })
+vim.keymap.set('n', '<leader>usv', '<cmd>vsplit<cr>', { desc = 'Vertical' })
+vim.keymap.set('n', '<leader>ush', '<cmd>split<cr>', { desc = 'Horizontal' })
 -- Replace all in current file
-vim.keymap.set('n', '<leader>ra', 'ggVG:s/')
+vim.keymap.set('n', '<leader>cra', 'ggVG:s/', { desc = '[C]ode replace all in current buffer' })
 -- Show Full File-Path
-vim.keymap.set('n', '<leader>pa', "echo expand('%:p')") -- Show Full File Path
+vim.keymap.set('n', '<leader>pa', ":echo expand('%:p')<cr>", { desc = 'Show full file path' })
 -- Indenting
 vim.keymap.set('v', '<', '<gv', { silent = true, noremap = true })
 vim.keymap.set('v', '>', '>gv', { silent = true, noremap = true })
 -- Replace all selected
-vim.keymap.set('v', '<leader>ra', '"hy :%s/<C-r>h/', { desc = 'Relace all with selected paragraph' })
+vim.keymap.set('v', '<leader>cra', '"hy :%s/<C-r>h/', { desc = '[C]ode relace all with selected paragraph' })
 
 -- Keep cursor centered when scrolling up/down
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
@@ -100,7 +98,7 @@ vim.keymap.set('n', '[w', function()
 end, { desc = 'Goto previous reference' })
 
 -- Todo Comments
-vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = '[F]ind Todos' })
+vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = 'Find Todos' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

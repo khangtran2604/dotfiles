@@ -88,52 +88,50 @@ require('lazy').setup({
 
         -- Navigation
         -- NOTE: Should replace by another keys binding
-        -- map({ 'n', 'v' }, ']c', function()
-        --   if vim.wo.diff then
-        --     return ']c'
-        --   end
-        --   vim.schedule(function()
-        --     gs.next_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { expr = true, desc = 'Jump to next hunk' })
-        -- map({ 'n', 'v' }, '[c', function()
-        --   if vim.wo.diff then
-        --     return '[c'
-        --   end
-        --   vim.schedule(function()
-        --     gs.prev_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { expr = true, desc = 'Jump to previous hunk' })
+        map({ 'n', 'v' }, ']e', function()
+          if vim.wo.diff then
+            return ']e'
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
+          return '<Ignore>'
+        end, { expr = true, desc = 'Jump to next hunk' })
+        map({ 'n', 'v' }, '[e', function()
+          if vim.wo.diff then
+            return '[e'
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
+          return '<Ignore>'
+        end, { expr = true, desc = 'Jump to previous hunk' })
 
         -- Actions
         -- visual mode
-        map('v', '<leader>hs', function()
+        map('v', '<leader>ghs', function()
           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'stage git hunk' })
-        map('v', '<leader>hr', function()
+        end, { desc = 'Stage selected hunk' })
+        map('v', '<leader>ghr', function()
           gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'reset git hunk' })
-        -- normal mode
-        map('n', '<leader>hs', gs.stage_hunk, { desc = 'git stage hunk' })
-        map('n', '<leader>hr', gs.reset_hunk, { desc = 'git reset hunk' })
-        map('n', '<leader>hS', gs.stage_buffer, { desc = 'git Stage buffer' })
-        map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-        map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
-        map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
-        map('n', '<leader>hb', function()
+        end, { desc = 'Reset selected hunk' })
+        map('n', '<leader>ghs', gs.stage_hunk, { desc = 'Git hunk stage' })
+        map('n', '<leader>ghr', gs.reset_hunk, { desc = 'Git hunk reset' })
+        map('n', '<leader>ghS', gs.stage_buffer, { desc = 'Git hunk stage buffer' })
+        map('n', '<leader>ghu', gs.undo_stage_hunk, { desc = 'Git undo stage hunk' })
+        map('n', '<leader>ghR', gs.reset_buffer, { desc = 'Git hunk reset' })
+        map('n', '<leader>ghp', gs.preview_hunk, { desc = 'Git hunk preview' })
+        map('n', '<leader>gb', function()
           gs.blame_line { full = false }
-        end, { desc = 'git blame line' })
-        map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
-        map('n', '<leader>hD', function()
+        end, { desc = 'Git blame line' })
+        map('n', '<leader>gd', gs.diffthis, { desc = 'Git diff against index' })
+        map('n', '<leader>gD', function()
           gs.diffthis '~'
-        end, { desc = 'git diff against last commit' })
+        end, { desc = 'Git diff against last commit' })
 
         -- Toggles
-        -- NOTE: Should replace by another keys binding
-        -- map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-        -- map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+        map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = 'Toggle git blame line' })
+        map('n', '<leader>gtd', gs.toggle_deleted, { desc = 'Toggle git show deleted' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
@@ -150,6 +148,8 @@ require('lazy').setup({
       require('lualine').setup {
         options = {
           theme = 'ayu',
+          globalstatus = true,
+          -- disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
         },
         overrides = {
           Normal = { bg = 'None' },
