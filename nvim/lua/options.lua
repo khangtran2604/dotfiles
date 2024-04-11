@@ -4,6 +4,9 @@
 local g = vim.g
 
 -- Set highlight on search
+vim.o.stausline = 'Filename:%t\\ Line:\\ %l\\ Col:\\ %c'
+
+-- Set highlight on search
 vim.o.hlsearch = true
 
 -- Make line numbers default

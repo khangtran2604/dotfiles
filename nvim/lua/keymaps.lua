@@ -80,10 +80,11 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 
 -- Navigate within insert mode
-vim.keymap.set('i', '<C-h>', '<Left>')
-vim.keymap.set('i', '<C-l>', '<Right>')
-vim.keymap.set('i', '<C-j>', '<Down>')
-vim.keymap.set('i', '<C-k>', '<Up>')
+-- NOTE: Using for Copilot plugin
+-- vim.keymap.set('i', '<C-h>', '<Left>')
+-- vim.keymap.set('i', '<C-l>', '<Right>')
+-- vim.keymap.set('i', '<C-j>', '<Down>')
+-- vim.keymap.set('i', '<C-k>', '<Up>')
 
 -- Neotree
 vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Neotree' })
