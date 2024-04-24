@@ -106,6 +106,9 @@ local servers = {
     },
   },
 
+  -- Javascript/TypeScript
+  tsserver = {},
+
   -- Docker
   dockerls = {},
   docker_compose_language_service = {},
@@ -158,35 +161,21 @@ require('lspconfig').jsonls.setup {
 }
 
 -- JavaScript/TypeScript
-require('lspconfig').tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { 'js', 'jsx', 'ts', 'tsx' },
-  ---@diagnostic disable-next-line: missing-fields
-  settings = {
-    completions = {
-      completeFunctionCalls = true,
-    },
-  },
-}
-vim.keymap.set('n', '<leader>co', function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { 'source.organizeImports.ts' },
-      diagnostics = {},
-    },
-  }
-end, { desc = 'Organize Imports' })
-vim.keymap.set('n', '<leader>cR', function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { 'source.removeUnused.ts' },
-      diagnostics = {},
-    },
-  }
-end, { desc = 'Remove Unused Imports' })
+-- require('lspconfig').tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { 'js', 'jsx', 'ts', 'tsx' },
+--   ---@diagnostic disable-next-line: missing-fields
+--   settings = {
+--     completions = {
+--       completeFunctionCalls = true,
+--     },
+--   },
+-- }
+
+vim.keymap.set('n', '<leader>co', ':TSToolsOrganizeImports<CR>', { desc = 'Organize Imports' })
+
+vim.keymap.set('n', '<leader>cR', ':TSToolsRemoveUnused<CR>', { desc = 'Remove All Unused Statement' })
 
 -- Golang
 require('lspconfig').gopls.setup {
