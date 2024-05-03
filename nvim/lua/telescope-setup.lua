@@ -24,6 +24,13 @@ require('telescope').setup {
         },
       },
     },
+    path_display = {
+      'filename_first',
+    },
+    color_devicons = true,
+    set_env = { ['COLORTERM'] = 'truecolor' },
+    select_strategy = 'reset',
+    sorting_strategy = 'ascending',
   },
 }
 
