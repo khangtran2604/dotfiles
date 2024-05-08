@@ -91,28 +91,28 @@ vim.defer_fn(function()
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
           [']f'] = '@call.outer', -- Next function call start
-          [']m'] = '@function.outer', -- Next method/function definition start
+          [']a'] = '@function.outer', -- Next method/function definition start
           [']c'] = '@class.outer', -- Next class start
           [']i'] = '@conditional.outer', -- Next conditional start
           [']l'] = '@loop.outer', -- Next loop start
         },
         goto_next_end = {
           [']F'] = '@call.outer', -- Next function call end
-          [']M'] = '@function.outer', -- Next method/function definition end
+          [']A'] = '@function.outer', -- Next method/function definition end
           [']C'] = '@class.outer', -- Next class end
           [']I'] = '@conditional.outer', -- Next conditional end
           [']L'] = '@loop.outer', -- Next loop end
         },
         goto_previous_start = {
           ['[f'] = '@call.outer', -- Previous function call start
-          ['[m'] = '@function.outer', -- Previous method/function definition start
+          ['[a'] = '@function.outer', -- Previous method/function definition start
           ['[c'] = '@class.outer', -- Previous class start
           ['[i'] = '@conditional.outer', -- Previous conditional start
           ['[l'] = '@loop.outer', -- Previous loop start
         },
         goto_previous_end = {
           ['[F'] = '@call.outer', -- Previous function call end
-          ['[M'] = '@function.outer', -- Previous method/function definition end
+          ['[A'] = '@function.outer', -- Previous method/function definition end
           ['[C'] = '@class.outer', -- Previous class end
           ['[I'] = '@conditional.outer', -- Previous conditional end
           ['[L'] = '@loop.outer', -- Previous loop end
