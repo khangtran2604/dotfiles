@@ -5,7 +5,7 @@ return {
   config = function(_, opts)
     local harpoon = require 'harpoon'
 
-    harpoon.setup(opts)
+    harpoon:setup(opts)
 
     vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():append()

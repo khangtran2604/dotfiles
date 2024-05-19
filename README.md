@@ -10,3 +10,17 @@ os:
   open: "code {{filename}}"
   editPreset: "nvim"
 ```
+
+### Multiple Neovim Configurations
+
+- Pass the following code into ~/.zshrc
+
+```bash
+  alias vim="nvim"
+  alias vi="nvim"
+
+  nvims() {
+    select config in prev
+    do NVIM_APPNAME=nvim-$config nvim $@; break; done
+  }
+```
