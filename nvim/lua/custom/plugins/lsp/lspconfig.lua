@@ -182,5 +182,24 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		})
+
+		vim.keymap.set("n", "<leader>co", function()
+			vim.lsp.buf.code_action({
+				apply = true,
+				context = {
+					only = { "source.organizeImports.ts" },
+					diagnostics = {},
+				},
+			})
+		end, { desc = "Organize Imports" })
+		vim.keymap.set("n", "<leader>cR", function()
+			vim.lsp.buf.code_action({
+				apply = true,
+				context = {
+					only = { "source.removeUnused.ts" },
+					diagnostics = {},
+				},
+			})
+		end, { desc = "Remove Unused Imports" })
 	end,
 }
