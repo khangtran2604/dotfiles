@@ -88,12 +88,12 @@ vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neo
 vim.keymap.set("n", "<leader>o", "<Cmd>Neotree focus<CR>", { desc = "Focus NeoTree" })
 
 -- Illuminate
--- vim.keymap.set('n', ']w', function()
---   require('illuminate').goto_next_reference()
--- end, { desc = 'Goto next reference' })
--- vim.keymap.set('n', '[w', function()
---   require('illuminate').goto_prev_reference()
--- end, { desc = 'Goto previous reference' })
+vim.keymap.set("n", "]w", function()
+	require("illuminate").goto_next_reference()
+end, { desc = "Goto next reference" })
+vim.keymap.set("n", "[w", function()
+	require("illuminate").goto_prev_reference()
+end, { desc = "Goto previous reference" })
 
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find Todos" })
