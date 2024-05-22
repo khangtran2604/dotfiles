@@ -19,12 +19,12 @@ return {
 			-- indicator = {
 			-- 	style = 'underline',
 			-- },
-			close_command = function(n)
-				LazyVim.ui.bufremove(n)
-			end,
-			right_mouse_command = function(n)
-				LazyVim.ui.bufremove(n)
-			end,
+			-- close_command = function(n)
+			-- 	LazyVim.ui.bufremove(n)
+			-- end,
+			-- right_mouse_command = function(n)
+			-- 	LazyVim.ui.bufremove(n)
+			-- end,
 			diagnostics_indicator = function(_, _, diag)
 				local icons = require("configs.icons").diagnostics
 				local ret = (diag.error and icons.Error .. diag.error .. " " or "")
@@ -57,6 +57,7 @@ return {
 		},
 	},
 	config = function(_, opts)
+		vim.opt.termguicolors = true
 		require("bufferline").setup(opts)
 
 		-- Fix bufferline when restoring a session
@@ -68,8 +69,6 @@ return {
 				end)
 			end,
 		})
-
-		vim.opt.termguicolors = true
 
 		local keymap = vim.keymap
 
