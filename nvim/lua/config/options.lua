@@ -18,6 +18,7 @@ local options = {
   completeopt = { 'menu', 'menuone', 'noselect' }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   fileencoding = 'utf-8', -- the encoding written to a file
+  encoding = 'utf-8', -- the encoding written to a file
   softtabstop = 2, -- edit as if tabs were 2 characters wide
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = true, -- ignore case in search patterns

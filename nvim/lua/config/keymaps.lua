@@ -5,6 +5,12 @@ local map = vim.keymap.set
 
 --> Normal Mode
 
+-- Show Full File-Path
+map('n', '<leader>pa', ":echo expand('%:p')<cr>", opts)
+
+-- Clear highlights
+map('n', '<esc>', '<CMD>noh<CR>', opts)
+
 -- Fast saving
 map('n', '<leader>wf', '<CMD>w<CR>', opts)
 
@@ -15,8 +21,8 @@ map('n', '<leader>q', '<CMD>confirm q<CR>', opts)
 map('n', '<leader>Q', '<CMD>confirm qall<CR>', opts)
 
 -- Split
-map('n', '<leader>|', '<CMD>vsplit<CR>', opts)
-map('n', '<leader>-', '<CMD>split<CR>', opts)
+map('n', '<leader>sv', '<CMD>vsplit<CR>', opts)
+map('n', '<leader>sh', '<CMD>split<CR>', opts)
 
 -- Keep cursor centered when scrolling
 map('n', '<C-d>', '<C-d>zz', opts)
@@ -33,10 +39,10 @@ map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
 
 -- Pane and Window Navigation
-vim.keymap.set("t", "<C-h>", "wincmd h") -- Navigate Left
-vim.keymap.set("t", "<C-j>", "wincmd j") -- Navigate Down
-vim.keymap.set("t", "<C-k>", "wincmd k") -- Navigate Up
-vim.keymap.set("t", "<C-l>", "wincmd l") -- Navigate Right
+vim.keymap.set('t', '<C-h>', 'wincmd h') -- Navigate Left
+vim.keymap.set('t', '<C-j>', 'wincmd j') -- Navigate Down
+vim.keymap.set('t', '<C-k>', 'wincmd k') -- Navigate Up
+vim.keymap.set('t', '<C-l>', 'wincmd l') -- Navigate Right
 
 -- NOTE: Move line on the screen rather than by line in the file
 map('n', 'j', 'gj', opts)
@@ -82,34 +88,34 @@ map({ 'n', 'x', 'o' }, 'L', 'g_', opts)
 --> Tmux Navigator
 
 -- Tmux Navigator Support
-vim.keymap.set("n", "<C-h>", vim.cmd.TmuxNavigateLeft, { desc = "Window left" })
-vim.keymap.set("n", "<C-l>", vim.cmd.TmuxNavigateRight, { desc = "Window right" })
-vim.keymap.set("n", "<C-j>", vim.cmd.TmuxNavigateDown, { desc = "Window down" })
-vim.keymap.set("n", "<C-k>", vim.cmd.TmuxNavigateUp, { desc = "Window up" })
+vim.keymap.set('n', '<C-h>', vim.cmd.TmuxNavigateLeft, opts)
+vim.keymap.set('n', '<C-l>', vim.cmd.TmuxNavigateRight, opts)
+vim.keymap.set('n', '<C-j>', vim.cmd.TmuxNavigateDown, opts)
+vim.keymap.set('n', '<C-k>', vim.cmd.TmuxNavigateUp, opts)
 
 --> Telescope
 
 -- Find
-map("n", "<leader>ff", '<CMD>lua require("telescope.builtin").find_files()<CR>', { desc = "Find files" })
-map("n", "<leader>fa", function()
-  require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
-end, { desc = "Find All Files" })
-map("n", "<leader>fW", function()
-  require("telescope.builtin").live_grep({
+map('n', '<leader>ff', '<CMD>lua require("telescope.builtin").find_files()<CR>', { desc = 'Find files' })
+map('n', '<leader>fa', function()
+  require('telescope.builtin').find_files { hidden = true, no_ignore = true }
+end, { desc = 'Find All Files' })
+map('n', '<leader>fW', function()
+  require('telescope.builtin').live_grep {
     additional_args = function(args)
-      return vim.list_extend(args, { "--hidden", "--no-ignore" })
+      return vim.list_extend(args, { '--hidden', '--no-ignore' })
     end,
-  })
-end, { desc = "Find words in all files" })
-map("n", "<leader>fg", '<CMD>lua require("telescope.builtin").git_files()<CR>', { desc = "Find git files" })
-map("n", "<leader>fw", '<CMD>lua require("telescope.builtin").live_grep()<CR>', { desc = "Find by grep" })
-map("n", "<leader>fb", '<CMD>lua require("telescope.builtin").buffers()<CR>', { desc = "Find existing buffers" })
-map("n", "<leader>fh", '<CMD>lua require("telescope.builtin").help_tags()<CR>', { desc = "Find help" })
-map("n", "<leader>fo", '<CMD>lua require("telescope.builtin").help_tags()<CR>', { desc = "Find old files" })
-map("n", "<leader>fd", '<CMD>lua require("telescope.builtin").diagnostics()<CR>', { desc = "Find Diagnostics" })
-map("n", "<leader>fT", function()
-  require("telescope.builtin").colorscheme({ enable_preview = true })
-end, { desc = "Find Theme" })
+  }
+end, { desc = 'Find words in all files' })
+map('n', '<leader>fg', '<CMD>lua require("telescope.builtin").git_files()<CR>', { desc = 'Find git files' })
+map('n', '<leader>fw', '<CMD>lua require("telescope.builtin").live_grep()<CR>', { desc = 'Find by grep' })
+map('n', '<leader><space>', '<CMD>lua require("telescope.builtin").buffers()<CR>', { desc = 'Find existing buffers' })
+map('n', '<leader>fh', '<CMD>lua require("telescope.builtin").help_tags()<CR>', { desc = 'Find help' })
+map('n', '<leader>fo', '<CMD>lua require("telescope.builtin").help_tags()<CR>', { desc = 'Find old files' })
+map('n', '<leader>fd', '<CMD>lua require("telescope.builtin").diagnostics()<CR>', { desc = 'Find Diagnostics' })
+map('n', '<leader>fT', function()
+  require('telescope.builtin').colorscheme { enable_preview = true }
+end, { desc = 'Find Theme' })
 
 -- Goto
 -- map("n", "gd", '<CMD>lua require("telescope.builtin").lsp_definitions()<CR>', { desc = "[G]oto [D]efinition" })
@@ -117,18 +123,92 @@ end, { desc = "Find Theme" })
 -- map("n", "gI", '<CMD>lua require("telescope.builtin").lsp_implementations()<CR>', { desc = "[G]oto [I]mplementation" })
 
 -- List
--- map("n", "<leader>ls", '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>', { desc = "[L]ist document symbols" })
+-- map('n', '<leader>ls', '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>', { desc = '[L]ist document symbols' })
 
 -- Others
-map("n", "<leader>?", '<CMD>lua require("telescope.builtin").builtin()<CR>', { desc = "[S]earch [S]elect Telescope" })
-map("n", "<leader>;", '<CMD>lua require("telescope.builtin").resume()<CR>', { desc = "[F]ind [R]esume" })
-map("n", "<leader>/", function()
+map('n', '<leader>?', '<CMD>lua require("telescope.builtin").builtin()<CR>', { desc = '[S]earch [S]elect Telescope' })
+map('n', '<leader>;', '<CMD>lua require("telescope.builtin").resume()<CR>', { desc = '[F]ind [R]esume' })
+map('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
     previewer = false,
-  }))
-end, { desc = "Fuzzily find in current buffer" })
+  })
+end, { desc = 'Fuzzily find in current buffer' })
 
 --> Todo Comment
-map("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find Todos" })
+map('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = 'Find Todos' })
+
+--> Bufferline
+map('n', '<tab>', '<cmd>:BufferLineCycleNext<CR>', { desc = 'Next Tab' })
+map('n', '<S-tab>', '<cmd>:BufferLineCyclePrev<CR>', { desc = 'Prev Tab' })
+map('n', '<leader>bco', '<cmd>:BufferLineCloseOthers<CR>', { desc = 'Close other tabs' })
+map('n', '<leader>x', function()
+  require('bufdelete').bufdelete(0, true)
+end, opts)
+
+--> Illuminate
+
+-- Goto next reference
+map('n', ']w', function()
+  require('illuminate').goto_next_reference()
+end, opts)
+-- Goto previous reference
+map('n', '[w', function()
+  require('illuminate').goto_prev_reference()
+end, opts)
+
+--> Hop
+map('n', '<leader>j', '<cmd>HopChar2<CR>', { desc = 'Jump to 2 characters', silent = true })
+
+--> Harpoon
+map('n', '<leader>ha', function()
+  require('harpoon'):list():append()
+end, { desc = 'Add to harpoon list' })
+map('n', '<leader>hl', function()
+  require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
+end, { desc = 'Show harpoon list' })
+
+map('n', '<leader>h1', function()
+  require('harpoon'):list():select(1)
+end, { desc = 'Select harpoon item 1' })
+map('n', '<leader>h2', function()
+  require('harpoon'):list():select(2)
+end, { desc = 'Select harpoon item 2' })
+map('n', '<leader>h3', function()
+  require('harpoon'):list():select(3)
+end, { desc = 'Select harpoon item 3' })
+map('n', '<leader>h4', function()
+  require('harpoon'):list():select(4)
+end, { desc = 'Select harpoon item 4' })
+
+--> Lazygit
+map('n', '<leader>gl', '<CMD>LazyGit<CR>', { desc = 'Open Lazygit', silent = true, noremap = true })
+
+--> Glance
+
+-- LSP Definition
+map('n', 'gd', '<CMD>Glance definitions<CR>', opts)
+-- LSP References
+map('n', 'gr', '<CMD>Glance references<CR>', opts)
+-- LSP Implementations
+map('n', 'gi', '<CMD>Glance implementations<CR>', opts)
+-- LSP Type Definitions
+map('n', 'gt', '<CMD>Glance type_definitions<CR>', opts)
+
+--> Refactoring
+
+-- Extract function
+map('x', '<leader>re', ':Refactor extract<CR>', opts)
+-- Extract function to file
+map('x', '<leader>rf', ':Refactor extract_to_file<CR>', opts)
+-- Extract variable
+map('x', '<leader>rv', ':Refactor extract_var<CR>', opts)
+-- Inline variable
+map({ 'x', 'n' }, '<leader>ri', ':Refactor inline_var<CR>', opts)
+-- Inline functions
+map('n', '<leader>rI', ':Refactor inline_func<CR>', opts)
+-- Extract block
+map('n', '<leader>rb', ':Refactor extract_block<CR>', opts)
+-- Extract block to files
+map('n', '<leader>rf', ':Refactor extract_block_to_file<CR>', opts)

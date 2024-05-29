@@ -1,7 +1,7 @@
-return {                -- Useful plugin to show you pending keybinds.
+return { -- Useful plugin to show you pending keybinds.
   'folke/which-key.nvim',
-  event = 'VimEnter',   -- Sets the loading event to 'VimEnter'
-  config = function()   -- This is the function that runs, AFTER loading
+  event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  config = function() -- This is the function that runs, AFTER loading
     require('which-key').setup()
 
     require('which-key').register {
@@ -30,7 +30,8 @@ return {                -- Useful plugin to show you pending keybinds.
       ['<leader>T'] = { name = '[T]oggling', _ = 'which_key_ignore' },
       -- UI
       ['<leader>u'] = { name = '[U]ser Interface', _ = 'which_key_ignore' },
-      ['<leader>us'] = { name = 'Splitting', _ = 'which_key_ignore' },
+      ['<leader>s'] = { name = '[S]plitting', _ = 'which_key_ignore' },
+      ['<leader>r'] = { name = '[R]efactoring', _ = 'which_key_ignore' },
     }
     -- register which-key VISUAL mode
     -- required for visual <leader>hs (hunk stage) to work

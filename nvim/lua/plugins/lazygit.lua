@@ -1,14 +1,10 @@
 return {
-	"kdheepak/lazygit.nvim",
-	-- optional for floating window border decoration
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	keys = {
-		{
-			"<leader>gl",
-			":LazyGit<CR>",
-			desc = "Open LazyGit",
-		},
-	},
+  'kdheepak/lazygit.nvim',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+  },
+  event = 'VimEnter',
+  config = function()
+    vim.g.lazygit_floating_window_scaling_factor = 0.9
+  end,
 }
