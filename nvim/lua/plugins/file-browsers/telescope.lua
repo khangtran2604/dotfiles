@@ -60,7 +60,7 @@ return {
 				selection_caret = "▍ ",
 				multi_icon = " ",
 				set_env = { COLORTERM = "truecolor" },
-				winblend = 10,
+				-- winblend = 10,
 			},
 			picker = {
 				find_files = {
