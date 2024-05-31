@@ -3,6 +3,9 @@ TERM = "xterm-256color"
 
 [font]
 normal = { family = "MonoLisaVariable Nerd Font", style = "Regular"}
+italic = { family = "MonoLisaVariable Nerd Font", style = "Italic"}
+bold = { family = "MonoLisaVariable Nerd Font", style = "Regular"}
+
 size = 13
 
 [colors]
@@ -37,7 +40,7 @@ white   = '#FFFFFF'
 
 [window]
 decorations = 'Transparent'
-opacity = 0.85
+opacity = 0.90
 blur = true
-# padding = { x = 20, y = 20 }
-# dynamic_padding = true
+padding = { x = 20, y = 20 }
+dynamic_padding = true
