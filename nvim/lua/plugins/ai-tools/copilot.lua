@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		event = "VeryLazy",
+		event = "BufEnter",
 		opts = {
 			show_help = "no",
 			prompts = {
