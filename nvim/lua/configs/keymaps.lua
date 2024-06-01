@@ -87,3 +87,6 @@ vim.keymap.set("n", "+", ":vertical resize +5<CR>", { desc = "Increase vertical 
 vim.keymap.set("n", "_", ":vertical resize -5<CR>", { desc = "Decrease vertical size -5", silent = true })
 vim.keymap.set("n", "=", ":resize +5<CR>", { desc = "Increase horizontal size +5", silent = true })
 vim.keymap.set("n", "-", ":resize -5<CR>", { desc = "Decrease horizontal size -5", silent = true })
+
+-- New import
+vim.keymap.set("n", "<leader>ni", "gg}O", { desc = "New import" })
