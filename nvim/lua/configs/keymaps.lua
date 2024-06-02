@@ -12,7 +12,7 @@ vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Delete without yan
 
 -- Fast escape
 -- vim.keymap.set('i', 'jj', '<esc>')
-vim.keymap.set("i", "jk", "<esc>")
+-- vim.keymap.set("i", "jk", "<esc>")
 -- Fast saving
 vim.keymap.set("n", "<leader>wf", ":w<cr>", { desc = "Fast saving", silent = true, noremap = true })
 -- Fast quit
