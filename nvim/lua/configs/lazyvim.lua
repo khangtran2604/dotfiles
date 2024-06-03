@@ -58,6 +58,7 @@ require("lazy").setup(plugins, {
 		},
 	},
 	ui = {
+		backdrop = 100,
 		border = "rounded",
 		icons = vim.g.have_nerd_font and {} or {
 			cmd = "⌘",

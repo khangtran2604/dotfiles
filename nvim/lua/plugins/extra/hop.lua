@@ -1,7 +1,8 @@
 return {
 	"phaazon/hop.nvim",
 	branch = "v2", -- optional but strongly recommended
-	event = "BufEnter",
+	-- event = "BufEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	keys = {
 		{
 			"<leader>j",

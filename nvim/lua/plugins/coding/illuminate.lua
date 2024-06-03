@@ -1,6 +1,7 @@
 return {
 	"RRethy/vim-illuminate",
-	event = "BufEnter",
+	-- event = "BufEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	keys = {
 		{
 			"]w",

@@ -28,7 +28,6 @@ return {
 			end,
 		},
 	},
-	event = "VimEnter",
 	keys = {
 		{
 			"<leader>e",
@@ -41,6 +40,7 @@ return {
 			desc = "Toggle focus",
 		},
 	},
+	cmd = { "NeoTree" },
 	config = function()
 		-- If you want icons for diagnostic errors, you'll need to define them somewhere:
 		vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })

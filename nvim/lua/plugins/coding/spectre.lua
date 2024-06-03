@@ -1,6 +1,7 @@
 return {
 	"nvim-pack/nvim-spectre",
-	event = "BufEnter",
+	-- event = "BufEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	keys = {
 		{
 			"<Leader>sp",

@@ -39,7 +39,8 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		event = "BufEnter",
+		-- event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			show_help = "no",
 			prompts = {
