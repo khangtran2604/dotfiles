@@ -32,4 +32,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = require "customs.configs.spectre",
   },
+
+  {
+    "folke/zen-mode.nvim",
+    opts = {},
+    lazy = true,
+    cmd = "ZenMode",
+  },
 }
