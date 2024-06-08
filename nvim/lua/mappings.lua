@@ -1,5 +1,12 @@
 require "nvchad.mappings"
 
+-- Disable mappings
+local nomap = vim.keymap.del
+
+nomap("n", "<C-n>")
+nomap("n", "<leader>n")
+nomap("n", "<leader>rn")
+
 -- add yours here
 
 local map = vim.keymap.set
@@ -114,11 +121,16 @@ map("n", "<leader>gl", "<CMD>LazyGit<CR>", { desc = "Open LazyGit" })
 map("n", "<leader>sp", "<CMD>Spectre<CR>", { desc = "Open Spectre" })
 
 -- LSP typescript
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+
 map("n", "<leader>co", function()
   vim.lsp.buf.code_action {
     apply = true,
     context = {
       only = {
+        ---@diagnostic disable-next-line: assign-type-mismatch
         "source.organizeImports.ts",
         -- "source.removeUnused.ts",
         -- "source.removeUnusedImports.ts",
@@ -137,6 +149,7 @@ map("n", "<leader>rm", function()
     context = {
       only = {
         -- "source.organizeImports.ts",
+        ---@diagnostic disable-next-line: assign-type-mismatch
         "source.removeUnused.ts",
         -- "source.removeUnusedImports.ts",
         -- "source.addMissingImports.ts",
@@ -150,8 +163,3 @@ end, { desc = "Code organize imports" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
--- Disable mappings
-local nomap = vim.keymap.del
-
-nomap("n", "<C-n>")
-nomap("n", "<leader>n")
