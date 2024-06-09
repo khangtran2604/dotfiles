@@ -39,4 +39,13 @@ return {
     lazy = true,
     cmd = "ZenMode",
   },
+
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    lazy = true,
+    config = function()
+      require "customs.configs.lint"
+    end,
+  },
 }

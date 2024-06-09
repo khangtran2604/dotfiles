@@ -23,6 +23,7 @@ return {
         "html-lsp",
         "css-lsp",
         "prettier",
+        "eslint_d",
       },
     },
   },
