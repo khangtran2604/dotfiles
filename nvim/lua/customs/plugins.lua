@@ -48,4 +48,16 @@ return {
       require "customs.configs.lint"
     end,
   },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+    config = function()
+      require "customs.configs.telescope"
+    end,
+  },
 }

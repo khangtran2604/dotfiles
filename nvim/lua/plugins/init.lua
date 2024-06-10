@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
@@ -18,19 +18,18 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- LSP
         "lua-language-server",
+        "typescript-language-server",
         "stylua",
         "html-lsp",
         "css-lsp",
+        -- Formatter
         "prettier",
+        -- Lint
         "eslint_d",
       },
     },
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = require "configs.telescope",
   },
 
   {
