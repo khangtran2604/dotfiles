@@ -21,7 +21,7 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle windo
 map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 
 map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split vertical" })
-map("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split horizontal" })
+map("n", "<leader>ss", "<cmd>split<CR>", { desc = "Split horizontal" })
 
 map("n", "H", "^", { desc = "Move to start of line" })
 map("n", "L", "g_", { desc = "Move to end of line" })
