@@ -161,5 +161,16 @@ map("n", "<leader>rm", function()
   }
 end, { desc = "Code organize imports" })
 
+map("n", "<leader>mo", function()
+  vim.t.bufs = vim.tbl_filter(function(bufnr)
+    ---@diagnostic disable-next-line: deprecated
+    return vim.api.nvim_buf_get_option(bufnr, "modified")
+  end, vim.t.bufs)
+end, { desc = "Modified buffers only" })
+
+map("n", "<leader>X", function()
+  require("nvchad.tabufline").closeAllBufs()
+end, { desc = "Close all buffers" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
