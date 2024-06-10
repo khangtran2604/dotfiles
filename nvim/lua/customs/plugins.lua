@@ -56,6 +56,7 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
+    cmd = "Telescope",
     config = function()
       require "customs.configs.telescope"
     end,
