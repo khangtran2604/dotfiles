@@ -37,6 +37,7 @@ map("n", "=", "<CMD>resize +5<CR>", { desc = "Increase horizontal size +5" })
 map("n", "-", "<CMD>resize -5<CR>", { desc = "Decrease horizontal size +5" })
 
 map("n", "<leader>ni", "magg}O", { desc = "New import" })
+map("n", "<leader>pa", ":echo expand('%:p')<cr>", { desc = "Show full file path" })
 
 -- Insert Mode
 
