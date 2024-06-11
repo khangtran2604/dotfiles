@@ -46,6 +46,6 @@ lint.linters_by_ft = {
   typescriptreact = { "eslint_d" },
 }
 
-vim.keymap.set("n", "<leader>lf", function()
-  lint.try_lint()
-end, { desc = "lint file" })
+-- vim.keymap.set("n", "<leader>lf", function()
+--   lint.try_lint()
+-- end, { desc = "lint file" })

@@ -85,6 +85,7 @@ autocmd({ "FileType" }, {
 
 -- Automatically run linters on save and enter
 autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+  group = augroup "lint",
   callback = function()
     -- try_lint without arguments runs the linters defined in `linters_by_ft`
     -- for the current filetype

@@ -173,5 +173,12 @@ map("n", "<leader>X", function()
   require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close all buffers" })
 
+map(
+  "n",
+  "<leader>F",
+  "mF:%!eslint_d --stdin --fix-to-stdout<CR>`F",
+  { desc = "Eslint Fix", noremap = true, silent = true }
+)
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
