@@ -61,4 +61,12 @@ return {
       require "customs.configs.telescope"
     end,
   },
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    keys = {
+      { "<leader>To", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {},
+  },
 }
