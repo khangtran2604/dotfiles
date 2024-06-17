@@ -37,7 +37,9 @@ map("n", "<leader>mo", function()
   end, vim.t.bufs)
 end, { desc = "Modified buffers only" })
 
+map("n", "<leader>ft", "<CMD>TodoTelescope<CR>", { desc = "Find todos" })
 -- Illuminate
+
 map("n", "]w", function()
   require("illuminate").goto_next_reference()
 end, { desc = "Goto next reference" })
