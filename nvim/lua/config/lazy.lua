@@ -17,6 +17,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.illuminate" },
     -- Harpoon2
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    -- Telescope
+    { import = "lazyvim.plugins.extras.editor.telescope" },
     -- import/override with your plugins
     { import = "plugins" },
   },
