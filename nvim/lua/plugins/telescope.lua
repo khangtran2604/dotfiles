@@ -116,6 +116,7 @@ return {
     end
 
     opts.defaults = {
+      file_ignore_patterns = { ".git/", "node_modules/", ".cache/", ".next/", ".DS_Store" },
       prompt_prefix = " ",
       selection_caret = " ",
       winblend = 0,
