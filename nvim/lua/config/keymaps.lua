@@ -47,6 +47,24 @@ map("n", "[w", function()
   require("illuminate").goto_prev_reference()
 end, { desc = "Goto previous reference" })
 
+-- Switch between windows
+map("n", "<C-h>", "<C-w>h", { desc = "Window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "Window up" })
+
+-- Tmux Navigator Support
+map("n", "<C-h>", vim.cmd.TmuxNavigateLeft, { desc = "Window left" })
+map("n", "<C-l>", vim.cmd.TmuxNavigateRight, { desc = "Window right" })
+map("n", "<C-j>", vim.cmd.TmuxNavigateDown, { desc = "Window down" })
+map("n", "<C-k>", vim.cmd.TmuxNavigateUp, { desc = "Window up" })
+
+-- Pane and Window Navigation
+map("t", "<C-h>", "wincmd h") -- Navigate Left
+map("t", "<C-j>", "wincmd j") -- Navigate Down
+map("t", "<C-k>", "wincmd k") -- Navigate Up
+map("t", "<C-l>", "wincmd l") -- Navigate Right
+
 map("i", "jk", "<ESC>")
 
 map("v", "c", '"_c', { desc = "Change without yanking" })
