@@ -1,51 +1,29 @@
-return {
-  defaults = { lazy = true },
-  install = { colorscheme = { "nvchad" } },
+---@diagnostic disable: undefined-global
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
-  change_detection = {
-    notify = false,
-  },
+require("lazy").setup({
+	-- { import = "plugins.colorschemes.tokyonight" },
+	{ import = "plugins.colorschemes.sonokai" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.code" },
+	{ import = "plugins.navigate" },
+	{ import = "plugins.assistants" },
+	{ import = "plugins.extra" },
+}, {
+	change_detection = {
+		notify = false,
+	},
+})
 
-  ui = {
-    icons = {
-      ft = "",
-      lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
-
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "tohtml",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-        "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
-      },
-    },
-  },
-}
+-- require("plugins.configs.cmp")
