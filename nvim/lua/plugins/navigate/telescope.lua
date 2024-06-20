@@ -46,7 +46,7 @@ return {
 
     require('telescope').setup {
       defaults = {
-        file_ignore_patterns = { 'node_modules', '.git', 'vendor' },
+        file_ignore_patterns = { 'node_modules', 'vendor' },
         set_env = { COLORTERM = 'truecolor' },
         mappings = {
           i = {
