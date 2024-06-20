@@ -26,6 +26,7 @@ return {
     map('n', '<leader>?', builtin.builtin, { desc = 'Search Select Telescope' })
     map('n', '<leader>fg', builtin.git_files, { desc = 'Find Git Files' })
     map('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
+    map('n', '<leader>fo', builtin.oldfiles, { desc = 'Find Old Files' })
     map('n', '<leader>fa', function()
       builtin.find_files { hidden = true, no_ignore = true }
     end, { desc = 'Find All Files' })
