@@ -1,6 +1,10 @@
 ---@diagnostic disable: undefined-global, assign-type-mismatch
 local map = vim.keymap.set
 
+-- Delete without yanking
+-- map("v", "c", '"_c', { desc = "Change without yanking" })
+map('v', 'x', '"_x', { desc = 'Delete without yanking' })
+
 -- general clear highlights
 map('n', '<ESC>', '<CMD>noh<CR>', { silent = true })
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
