@@ -17,12 +17,15 @@ return {
     map('n', '<leader>ls', builtin.lsp_document_symbols, { desc = 'List document symbols' })
     map('n', '<leader><space>', builtin.buffers, { desc = 'Find existing buffers' })
     map('n', '<leader>/', function()
-      -- You can pass additional configuration to telescope to change theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
+      builtin.live_grep { search_dirs = { '%:p' } }
     end, { desc = 'Fuzzily find in current buffer' })
+    -- map('n', '<leader>/', function()
+    --   -- You can pass additional configuration to telescope to change theme, layout, etc.
+    --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    --     winblend = 10,
+    --     previewer = false,
+    --   })
+    -- end, { desc = 'Fuzzily find in current buffer' })
     map('n', '<leader>?', builtin.builtin, { desc = 'Search Select Telescope' })
     map('n', '<leader>fg', builtin.git_files, { desc = 'Find Git Files' })
     map('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
