@@ -44,10 +44,12 @@ cyan    = '#95E6CB'
 white   = '#FFFFFF'
 
 [window]
-decorations = 'Transparent'
+decorations = 'Buttonless'
 opacity = 0.85
 blur = true
-dynamic_padding = false
+dynamic_padding = true
+decorations_theme_variant = 'Dark'
+padding = { x = 3, y = 3 }
 
 [scrolling]
 history = 5000
