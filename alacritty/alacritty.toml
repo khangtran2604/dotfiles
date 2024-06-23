@@ -2,13 +2,18 @@
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "MonoLisaVariable Nerd Font", style = "Regular"}
-italic = { family = "MonoLisaVariable Nerd Font", style = "Italic"}
-bold = { family = "MonoLisaVariable Nerd Font", style = "Regular"}
+normal = { family = "Hack Nerd Font Mono", style = "Regular"}
+bold = { family = "Hack Nerd Font Mono", style = "Bold"}
+italic = { family = "Hack Nerd Font Mono", style = "Italic"}
+bold_italic = { family = "Hack Nerd Font Mono", style = "Bold Italic"}
 
-size = 13
+size = 15
+offset.x = 0
+offset.y = 1
 
 [colors]
+draw_bold_text_with_bright_colors = true
+transparent_background_colors = true
 
 # Colors (Ayu Dark)
 # Default colors
@@ -40,7 +45,10 @@ white   = '#FFFFFF'
 
 [window]
 decorations = 'Transparent'
-opacity = 0.90
+opacity = 0.85
 blur = true
-padding = { x = 20, y = 20 }
-dynamic_padding = true
+dynamic_padding = false
+
+[scrolling]
+history = 5000
+
