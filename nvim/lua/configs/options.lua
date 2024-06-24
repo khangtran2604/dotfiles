@@ -16,6 +16,7 @@ vim.opt.fillchars = {
 vim.opt.linebreak = true
 
 local opts = {
+  background = 'dark',
   laststatus = 3,
   showmode = false,
 
