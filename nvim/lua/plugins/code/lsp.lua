@@ -109,6 +109,12 @@ return {
       }
       map('n', '<leader>rn', ':Lspsaga rename<CR>', { silent = true, desc = 'LSP Rename' })
       -- map('n', '<leader>ca', ':Lspsaga code_action<CR>', { silent = true, desc = 'LSP Code Actions' })
+      map('n', '<leader>ca', function()
+        local ok, _ = pcall(vim.cmd, 'Lspsaga code_action')
+        if not ok then
+          vim.lsp.buf.code_action()
+        end
+      end, { silent = true, desc = 'LSP Code Actions' })
       map('n', '<leader>To', ':Lspsaga outline<CR>', { silent = true, desc = 'LSP Outline' })
 
       --- if you want to know more about lsp-zero and mason.nvim
@@ -119,7 +125,7 @@ return {
         lsp_zero.default_keymaps { buffer = bufnr }
 
         -- map('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
-        map('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+        -- map('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
       end)
 
       lsp_zero.set_server_config {
