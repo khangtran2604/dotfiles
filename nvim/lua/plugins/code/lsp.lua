@@ -86,11 +86,30 @@ return {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'williamboman/mason-lspconfig.nvim' },
       { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+      {
+        'nvimdev/lspsaga.nvim',
+        dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+          'nvim-tree/nvim-web-devicons',
+        },
+      },
     },
     config = function()
+      local map = vim.keymap.set
+
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require 'lsp-zero'
       lsp_zero.extend_lspconfig()
+
+      -- LSP Saga
+      require('lspsaga').setup {
+        ui = {
+          code_action = require('configs.icons').diagnostics.Hint,
+        },
+      }
+      map('n', '<leader>rn', ':Lspsaga rename<CR>', { silent = true, desc = 'LSP Rename' })
+      -- map('n', '<leader>ca', ':Lspsaga code_action<CR>', { silent = true, desc = 'LSP Code Actions' })
+      map('n', '<leader>To', ':Lspsaga outline<CR>', { silent = true, desc = 'LSP Outline' })
 
       --- if you want to know more about lsp-zero and mason.nvim
       --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
@@ -99,9 +118,7 @@ return {
         -- to learn the available actions
         lsp_zero.default_keymaps { buffer = bufnr }
 
-        local map = vim.keymap.set
-
-        map('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
+        -- map('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
         map('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
       end)
 
@@ -155,4 +172,16 @@ return {
       }
     end,
   },
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua', -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  { 'Bilal2453/luvit-meta', lazy = true },
 }
