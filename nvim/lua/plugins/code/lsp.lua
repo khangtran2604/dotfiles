@@ -31,7 +31,7 @@ return {
 
       -- And you can configure cmp even more, if you want to.
       local cmp = require 'cmp'
-      local cmp_action = lsp_zero.cmp_action()
+      -- local cmp_action = lsp_zero.cmp_action()
 
       cmp.setup {
         formatting = lsp_zero.cmp_format { details = true },
@@ -110,6 +110,7 @@ return {
       map('n', '<leader>rn', ':Lspsaga rename<CR>', { silent = true, desc = 'LSP Rename' })
       -- map('n', '<leader>ca', ':Lspsaga code_action<CR>', { silent = true, desc = 'LSP Code Actions' })
       map('n', '<leader>ca', function()
+        ---@diagnostic disable-next-line: param-type-mismatch
         local ok, _ = pcall(vim.cmd, 'Lspsaga code_action')
         if not ok then
           vim.lsp.buf.code_action()
@@ -119,6 +120,7 @@ return {
 
       --- if you want to know more about lsp-zero and mason.nvim
       --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+      ---@diagnostic disable-next-line: unused-local
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
