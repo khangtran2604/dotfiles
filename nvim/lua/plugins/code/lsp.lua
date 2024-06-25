@@ -38,9 +38,9 @@ return {
         completion = { completeopt = 'menu,menuone,noinsert' },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'copilot' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'spell' },
         },
         mapping = cmp.mapping.preset.insert {
           ['<C-j>'] = cmp.mapping.select_next_item(),

@@ -16,7 +16,7 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, 
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
 -- Fast saving
-map('n', '<leader>wf', ':w<cr>', { desc = 'Fast saving', silent = true })
+map('n', '<leader>wf', ':w<cr>', { desc = 'Fast saving', silent = true, noremap = true })
 
 -- Fast quit
 map('n', '<leader>q', '<cmd>confirm q<cr>', { desc = 'Fast quit', silent = true })
