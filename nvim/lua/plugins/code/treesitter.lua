@@ -17,6 +17,8 @@ return { -- Highlight, edit, and navigate code
         'vim',
         'vimdoc',
         'query',
+        'regex',
+        'markdown_inline',
         -- Python
         'python',
         -- Rust
