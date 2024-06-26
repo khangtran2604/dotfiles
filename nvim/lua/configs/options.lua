@@ -60,6 +60,7 @@ local opts = {
   foldlevel = 99,
   foldlevelstart = 99,
   foldenable = true,
+  conceallevel = 2,
 
   pumblend = 20,
 }
