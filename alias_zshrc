@@ -16,10 +16,12 @@ alias gp="git pull"
 alias gP="git push"
 alias gc="git commit"
 alias gl="git log --graph --decorate --oneline"
+alias gm='git merge $(gb)'
 
 nvims() {
   select config in nvchad
   do NVIM_APPNAME=nvim-$config nvim $@; break; done
 }
+
 
 # ---- End Custom Aliases ----
