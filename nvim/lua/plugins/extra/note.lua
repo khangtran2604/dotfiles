@@ -13,7 +13,20 @@ return {
       require('neorg').setup {
         load = {
           ['core.defaults'] = {},
-          ['core.concealer'] = {},
+          ['core.concealer'] = {
+            config = {
+              icons = {
+                todo = {
+                  pending = {
+                    icon = require('configs.icons').neorg.task.pending,
+                  },
+                  urgent = {
+                    icon = require('configs.icons').neorg.task.urgent,
+                  },
+                },
+              },
+            },
+          },
           ['core.dirman'] = {
             config = {
               workspaces = {
