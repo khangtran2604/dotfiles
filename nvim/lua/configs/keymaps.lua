@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global, assign-type-mismatch
+---@diagnostic disable: assign-type-mismatch
 local map = vim.keymap.set
 
 -- Delete without yanking
