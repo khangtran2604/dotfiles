@@ -58,6 +58,8 @@ return {
           },
           -- Telescope
           ['core.integrations.telescope'] = {},
+          -- Summaryj
+          ['core.summary'] = {},
         },
       }
     end,
