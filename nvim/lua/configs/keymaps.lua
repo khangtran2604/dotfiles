@@ -103,3 +103,6 @@ map('n', '+', ':vertical resize +2<CR>', { desc = 'Increase vertical size +5', s
 map('n', '_', ':vertical resize -2<CR>', { desc = 'Decrease vertical size -5', silent = true })
 map('n', '=', ':resize +2<CR>', { desc = 'Increase horizontal size +5', silent = true })
 map('n', '-', ':resize -2<CR>', { desc = 'Decrease horizontal size -5', silent = true })
+
+-- Neorg
+map('n', '<leader>no', ':Neorg index<CR>', { desc = 'Open Neorg Index', silent = true })
