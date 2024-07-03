@@ -15,6 +15,7 @@ require('lazy').setup({
   -- { import = "plugins.colorschemes.tokyonight" },
   { import = 'plugins.colorschemes.sonokai' },
   { import = 'plugins.ui' },
+  { import = 'plugins.lsp' },
   { import = 'plugins.code' },
   { import = 'plugins.navigate' },
   { import = 'plugins.assistants' },
