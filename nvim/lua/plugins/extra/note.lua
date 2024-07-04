@@ -58,8 +58,20 @@ return {
           },
           -- Telescope
           ['core.integrations.telescope'] = {},
-          -- Summaryj
+          -- Summary
           ['core.summary'] = {},
+          -- Completion
+          ['core.completion'] = { config = { engine = 'nvim-cmp', name = '[Norg]' } },
+          ['core.integrations.nvim-cmp'] = {},
+          -- Export
+          ['core.export'] = {},
+          ['core.export.markdown'] = { config = { extensions = 'all' } },
+          -- Others
+          ['core.esupports.metagen'] = { config = { type = 'auto', update_date = true } },
+          ['core.qol.toc'] = {},
+          ['core.qol.todo_items'] = {},
+          ['core.looking-glass'] = {},
+          ['core.presenter'] = { config = { zen_mode = 'zen-mode' } },
         },
       }
     end,
