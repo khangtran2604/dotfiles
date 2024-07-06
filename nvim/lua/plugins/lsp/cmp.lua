@@ -39,18 +39,18 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    local types = require 'luasnip.util.types'
+    -- local types = require 'luasnip.util.types'
     local lspkind = require 'lspkind'
 
     luasnip.config.setup {
-      ext_opts = {
-        [types.choiceNode] = {
-          active = { virt_text = { { '⇥', 'GruvboxRed' } } },
-        },
-        [types.insertNode] = {
-          active = { virt_text = { { '⇥', 'GruvboxBlue' } } },
-        },
-      },
+      -- ext_opts = {
+      --   [types.choiceNode] = {
+      --     active = { virt_text = { { '⇥', 'GruvboxRed' } } },
+      --   },
+      --   [types.insertNode] = {
+      --     active = { virt_text = { { '⇥', 'GruvboxBlue' } } },
+      --   },
+      -- },
     }
 
     cmp.setup {
