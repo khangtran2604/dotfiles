@@ -3,6 +3,14 @@ return { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      {
+        'nvim-treesitter/nvim-treesitter-context', -- Show code context
+        opts = {
+          enable = true,
+          mode = 'topline',
+          line_numbers = true,
+        },
+      },
     },
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },

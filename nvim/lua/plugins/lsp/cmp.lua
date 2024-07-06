@@ -27,6 +27,7 @@ return { -- Autocompletion
       },
     },
     'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind-nvim',
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
@@ -38,13 +39,29 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    luasnip.config.setup {}
+    local types = require 'luasnip.util.types'
+    local lspkind = require 'lspkind'
+
+    luasnip.config.setup {
+      ext_opts = {
+        [types.choiceNode] = {
+          active = { virt_text = { { '⇥', 'GruvboxRed' } } },
+        },
+        [types.insertNode] = {
+          active = { virt_text = { { '⇥', 'GruvboxBlue' } } },
+        },
+      },
+    }
 
     cmp.setup {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
 
@@ -84,8 +101,17 @@ return { -- Autocompletion
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
         { name = 'path' },
         { name = 'spell' },
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol_text',
+          maxwidth = 70,
+          show_labelDetails = true,
+        },
       },
     }
   end,

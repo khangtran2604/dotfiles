@@ -90,7 +90,22 @@ return { -- LSP Configuration & Plugins
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      gopls = {},
+      gopls = {
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+        root_dir = require('lspconfig').util.root_pattern('go.mod', 'go.work', '.git'),
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              unusedparams = true,
+              shadow = true,
+              unusedwrite = true,
+            },
+          },
+        },
+      },
       pyright = {},
       lua_ls = {
         -- cmd = {...},
@@ -131,6 +146,7 @@ return { -- LSP Configuration & Plugins
       'isort',
       'black',
       'marksman',
+      'gopls',
     }
 
     require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
