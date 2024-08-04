@@ -1,0 +1,4 @@
+vsync = true
+maximized = true
+title-hidden = true
+frame = "transparent"

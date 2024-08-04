@@ -1,0 +1,27 @@
+# ---- Custom Aliases ----
+
+# Lazygit
+alias lg="lazygit"
+
+# Neovim
+alias vim="nvim"
+alias vi="nvim"
+
+# Fzf Setting
+source <(fzf --zsh)
+
+# Git commands
+alias gb="git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse"
+alias gp="git pull"
+alias gP="git push"
+alias gc="git commit"
+alias gl="git log --graph --decorate --oneline"
+alias gm='git merge $(gb)'
+
+nvims() {
+  select config in nvchad
+  do NVIM_APPNAME=nvim-$config nvim $@; break; done
+}
+
+
+# ---- End Custom Aliases ----
