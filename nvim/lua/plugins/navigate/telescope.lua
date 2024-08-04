@@ -11,10 +11,6 @@ return {
     local builtin = require 'telescope.builtin'
     local map = vim.keymap.set
 
-    map('n', 'gd', builtin.lsp_definitions, { desc = 'Goto Definitions' })
-    map('n', 'gr', builtin.lsp_references, { desc = 'Goto References' })
-    map('n', 'gi', builtin.lsp_implementations, { desc = 'Goto Implementation' })
-    map('n', '<leader>ls', builtin.lsp_document_symbols, { desc = 'List document symbols' })
     map('n', '<leader><space>', builtin.buffers, { desc = 'Find existing buffers' })
     map('n', '<leader>/', function()
       builtin.live_grep { search_dirs = { '%:p' } }
@@ -44,6 +40,10 @@ return {
     end, { desc = 'Find words in all files' })
     map('n', '<leader>fd', builtin.diagnostics, { desc = 'Find Diagnostics' })
     map('n', '<leader>;', builtin.resume, { desc = 'Find Resume' })
+    map('n', '<leader>fc', function()
+      builtin.find_files { cwd = vim.fn.stdpath 'config' }
+    end, { desc = '[F]ind [N]eovim files' })
+    map('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
   end,
   config = function()
     local actions = require 'telescope.actions'
