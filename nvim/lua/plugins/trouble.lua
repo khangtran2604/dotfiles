@@ -1,8 +1,7 @@
 return {
   "folke/trouble.nvim",
-  cmd = { "TroubleToggle", "Trouble" },
+  event = "BufEnter",
   opts = { use_diagnostic_signs = true },
-  lazy = true,
   keys = {
     {
       "<leader>fd",
@@ -21,7 +20,7 @@ return {
     },
   },
   config = function()
-    require("trouble").setup({
+    require("trouble").setup {
       -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
       mode = "workspace_diagnostics",
       position = "bottom", -- position of the list can be: bottom, top, left, right
@@ -47,6 +46,6 @@ return {
       },
       auto_jump = {},
       use_diagnostic_signs = true,
-    })
+    }
   end,
 }

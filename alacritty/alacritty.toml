@@ -1,370 +1,56 @@
-[font]
-size = 16
-
-[font.offset]
-y = 14
-
-[font.glyph_offset]
-y = 7
-
-[font.normal]
-family = "SFMono Nerd Font"
-
-[window]
-opacity = 0.98
-decorations = "buttonless"
-
-[window.padding]
-x = 5
-y = 5
-
-[window.dimensions]
-columns = 120
-lines = 40
-
-[cursor]
-unfocused_hollow = true
-
-[cursor.style]
-blinking = "Never"
-
 [env]
 TERM = "xterm-256color"
 
-[scrolling]
-history = 2_000
+[font]
+normal = { family = "MonoLisa Nerd Font", style = "Regular"}
+bold = { family = "MonoLisa Nerd Font", style = "Bold"}
+italic = { family = "MonoLisa Nerd Font", style = "Light Italic"}
+bold_italic = { family = "MonoLisa Nerd Font", style = "Bold Italic"}
 
-# [colors.doom-one.primary]
-# background = "#282c34"
-# foreground = "#bbc2cf"
-#
-# [colors.doom-one.cursor]
-# text = "CellBackground"
-# cursor = "#528bff"
-#
-# [colors.doom-one.selection]
-# text = "CellForeground"
-# background = "#3e4451"
-#
-# [colors.doom-one.normal]
-# black = "#1c1f24"
-# red = "#ff6c6b"
-# green = "#98be65"
-# yellow = "#da8548"
-# blue = "#51afef"
-# magenta = "#c678dd"
-# cyan = "#5699af"
-# white = "#202328"
-#
-# [colors.doom-one.bright]
-# black = "#5b6268"
-# red = "#da8548"
-# green = "#4db5bd"
-# yellow = "#ecbe7b"
-# blue = "#3071db"
-# magenta = "#a9a1e1"
-# cyan = "#46d9ff"
-# white = "#dfdfdf"
-#
-# [colors.dracula.primary]
-# background = "#282a36"
-# foreground = "#f8f8f2"
-#
-# [colors.dracula.cursor]
-# text = "CellBackground"
-# cursor = "CellForeground"
-#
-# [colors.dracula.vi_mode_cursor]
-# text = "CellBackground"
-# cursor = "CellForeground"
-#
-# [colors.dracula.search.matches]
-# foreground = "#44475a"
-# background = "#50fa7b"
-#
-# [colors.dracula.search.focused_match]
-# foreground = "#44475a"
-# background = "#ffb86c"
-#
-# [colors.dracula.search.bar]
-# background = "#282a36"
-# foreground = "#f8f8f2"
-#
-# [colors.dracula.line_indicator]
-# foreground = "None"
-# background = "None"
-#
-# [colors.dracula.selection]
-# text = "CellForeground"
-# background = "#44475a"
-#
-# [colors.dracula.normal]
-# black = "#000000"
-# red = "#ff5555"
-# green = "#50fa7b"
-# yellow = "#f1fa8c"
-# blue = "#bd93f9"
-# magenta = "#ff79c6"
-# cyan = "#8be9fd"
-# white = "#bfbfbf"
-#
-# [colors.dracula.bright]
-# black = "#4d4d4d"
-# red = "#ff6e67"
-# green = "#5af78e"
-# yellow = "#f4f99d"
-# blue = "#caa9fa"
-# magenta = "#ff92d0"
-# cyan = "#9aedfe"
-# white = "#e6e6e6"
-#
-# [colors.dracula.dim]
-# black = "#14151b"
-# red = "#ff2222"
-# green = "#1ef956"
-# yellow = "#ebf85b"
-# blue = "#4d5b86"
-# magenta = "#ff46b0"
-# cyan = "#59dffc"
-# white = "#e6e6d1"
+size = 15
+offset.x = 0
+offset.y = 5
 
+[colors]
+draw_bold_text_with_bright_colors = true
+transparent_background_colors = true
 
-# [colors.monokai-pro.primary]
-# background = "#2D2A2E"
-# foreground = "#FCFCFA"
-#
-# [colors.monokai-pro.normal]
-# black = "#403E41"
-# red = "#FF6188"
-# green = "#A9DC76"
-# yellow = "#FFD866"
-# blue = "#FC9867"
-# magenta = "#AB9DF2"
-# cyan = "#78DCE8"
-# white = "#FCFCFA"
-#
-# [colors.monokai-pro.bright]
-# black = "#727072"
-# red = "#FF6188"
-# green = "#A9DC76"
-# yellow = "#FFD866"
-# blue = "#FC9867"
-# magenta = "#AB9DF2"
-# cyan = "#78DCE8"
-# white = "#FCFCFA"
-#
-# [colors.nord.primary]
-# background = "#2E3440"
-# foreground = "#D8DEE9"
-#
-# [colors.nord.normal]
-# black = "#3B4252"
-# red = "#BF616A"
-# green = "#A3BE8C"
-# yellow = "#EBCB8B"
-# blue = "#81A1C1"
-# magenta = "#B48EAD"
-# cyan = "#88C0D0"
-# white = "#E5E9F0"
-#
-# [colors.nord.bright]
-# black = "#4C566A"
-# red = "#BF616A"
-# green = "#A3BE8C"
-# yellow = "#EBCB8B"
-# blue = "#81A1C1"
-# magenta = "#B48EAD"
-# cyan = "#8FBCBB"
-# white = "#ECEFF4"
-#
-# [colors.oceanic-next.primary]
-# background = "#1b2b34"
-# foreground = "#d8dee9"
-#
-# [colors.oceanic-next.cursor]
-# text = "#1b2b34"
-# cursor = "#ffffff"
-#
-# [colors.oceanic-next.normal]
-# black = "#343d46"
-# red = "#EC5f67"
-# green = "#99C794"
-# yellow = "#FAC863"
-# blue = "#6699cc"
-# magenta = "#c594c5"
-# cyan = "#5fb3b3"
-# white = "#d8dee9"
-#
-# [colors.oceanic-next.bright]
-# black = "#343d46"
-# red = "#EC5f67"
-# green = "#99C794"
-# yellow = "#FAC863"
-# blue = "#6699cc"
-# magenta = "#c594c5"
-# cyan = "#5fb3b3"
-# white = "#d8dee9"
-#
-# [colors.solarized-light.primary]
-# background = "#fdf6e3"
-# foreground = "#657b83"
-#
-# [colors.solarized-light.cursor]
-# text = "#fdf6e3"
-# cursor = "#657b83"
-#
-# [colors.solarized-light.normal]
-# black = "#073642"
-# red = "#dc322f"
-# green = "#859900"
-# yellow = "#b58900"
-# blue = "#268bd2"
-# magenta = "#d33682"
-# cyan = "#2aa198"
-# white = "#eee8d5"
-#
-# [colors.solarized-light.bright]
-# black = "#002b36"
-# red = "#cb4b16"
-# green = "#586e75"
-# yellow = "#657b83"
-# blue = "#839496"
-# magenta = "#6c71c4"
-# cyan = "#93a1a1"
-# white = "#fdf6e3"
-#
-# [colors.solarized-dark.primary]
-# background = "#002b36"
-# foreground = "#839496"
-#
-# [colors.solarized-dark.cursor]
-# text = "#002b36"
-# cursor = "#839496"
-#
-# [colors.solarized-dark.normal]
-# black = "#073642"
-# red = "#dc322f"
-# green = "#859900"
-# yellow = "#b58900"
-# blue = "#268bd2"
-# magenta = "#d33682"
-# cyan = "#2aa198"
-# white = "#eee8d5"
-#
-# [colors.solarized-dark.bright]
-# black = "#002b36"
-# red = "#cb4b16"
-# green = "#586e75"
-# yellow = "#657b83"
-# blue = "#839496"
-# magenta = "#6c71c4"
-# cyan = "#93a1a1"
-# white = "#fdf6e3"
-#
-# [colors.tomorrow-night.primary]
-# background = "#1d1f21"
-# foreground = "#c5c8c6"
-#
-# [colors.tomorrow-night.cursor]
-# text = "#1d1f21"
-# cursor = "#ffffff"
-#
-# [colors.tomorrow-night.normal]
-# black = "#1d1f21"
-# red = "#cc6666"
-# green = "#b5bd68"
-# yellow = "#e6c547"
-# blue = "#81a2be"
-# magenta = "#b294bb"
-# cyan = "#70c0ba"
-# white = "#373b41"
-#
-# [colors.tomorrow-night.bright]
-# black = "#666666"
-# red = "#ff3334"
-# green = "#9ec400"
-# yellow = "#f0c674"
-# blue = "#81a2be"
-# magenta = "#b77ee0"
-# cyan = "#54ced6"
-# white = "#282a2e"
-#
-# [colors.moonfly.primary]
-# background = "#080808"
-# foreground = "#b2b2b2"
-#
-# [colors.moonfly.cursor]
-# text = "#080808"
-# cursor = "#b2b2b2"
-#
-# [colors.moonfly.normal]
-# black = "#323437"
-# red = "#ff5454"
-# green = "#8cc85f"
-# yellow = "#e3c78a"
-# blue = "#80a0ff"
-# magenta = "#d183e8"
-# cyan = "#79dac8"
-# white = "#c6c6c6"
-#
-# [colors.moonfly.bright]
-# black = "#949494"
-# red = "#ff5189"
-# green = "#36c692"
-# yellow = "#bfbf97"
-# blue = "#74b2ff"
-# magenta = "#ae81ff"
-# cyan = "#85dc85"
-# white = "#e4e4e4"
-#
-# [colors.papercolor.primary]
-# background = "0xeeeeee"
-# foreground = "0x878787"
-#
-# [colors.papercolor.cursor]
-# text = "0xeeeeee"
-# cursor = "0x878787"
-#
-# [colors.papercolor.normal]
-# black = "0xeeeeee"
-# red = "0xaf0000"
-# green = "0x008700"
-# yellow = "0x5f8700"
-# blue = "0x0087af"
-# magenta = "0x878787"
-# cyan = "0x005f87"
-# white = "0x444444"
-#
-# [colors.papercolor.bright]
-# black = "0xbcbcbc"
-# red = "0xd70000"
-# green = "0xd70087"
-# yellow = "0x8700af"
-# blue = "0xd75f00"
-# magenta = "0xd75f00"
-# cyan = "0x005faf"
-# white = "0x005f87"
-
+# Colors (Ayu Dark)
+# Default colors
 [colors.primary]
-background = "#1b1b1b"
-foreground = "#ebdbb2"
+background = '#0A0E14'
+foreground = '#B3B1AD'
 
+# Normal colors
 [colors.normal]
-black = "#282828"
-red = "#cc241d"
-green = "#98971a"
-yellow = "#d79921"
-blue = "#458588"
-magenta = "#b16286"
-cyan = "#689d6a"
-white = "#a89984"
+black   = '#01060E'
+red     = '#EA6C73'
+green   = '#91B362'
+yellow  = '#F9AF4F'
+blue    = '#53BDFA'
+magenta = '#FAE994'
+cyan    = '#90E1C6'
+white   = '#C7C7C7'
 
+# Bright colors
 [colors.bright]
-black = "#928374"
-red = "#fb4934"
-green = "#b8bb26"
-yellow = "#fabd2f"
-blue = "#83a598"
-magenta = "#d3869b"
-cyan = "#8ec07c"
-white = "#ebdbb2"
+black   = '#686868'
+red     = '#F07178'
+green   = '#C2D94C'
+yellow  = '#FFB454'
+blue    = '#59C2FF'
+magenta = '#FFEE99'
+cyan    = '#95E6CB'
+white   = '#FFFFFF'
+
+[window]
+decorations = 'Buttonless'
+opacity = 0.95
+blur = true
+dynamic_padding = true
+decorations_theme_variant = 'Dark'
+padding = { x = 3, y = 3 }
+
+[scrolling]
+history = 5000
+

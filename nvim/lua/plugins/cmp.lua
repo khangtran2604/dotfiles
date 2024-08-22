@@ -18,8 +18,8 @@ return {
     "onsails/lspkind.nvim",
   },
   config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
+    local cmp = require "cmp"
+    local luasnip = require "luasnip"
     -- local lspkind = require("lspkind")
 
     local kind_icons = {
@@ -50,9 +50,9 @@ return {
       TypeParameter = "󰅲",
     }
     require("luasnip.loaders.from_vscode").lazy_load()
-    luasnip.config.setup({})
+    luasnip.config.setup {}
 
-    cmp.setup({
+    cmp.setup {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -61,17 +61,17 @@ return {
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = cmp.mapping.preset.insert {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete({}),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<CR>"] = cmp.mapping.confirm({
+        ["<C-Space>"] = cmp.mapping.complete {},
+        ["<C-y>"] = cmp.mapping.confirm { select = true },
+        ["<CR>"] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
-        }),
+        },
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -90,22 +90,22 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-      }),
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
       sources = {
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "buffer" },
+        { name = "nvim_lua" },
         { name = "path" },
-        { name = "calc" },
-        { name = "emoji" },
-        { name = "treesitter" },
-        { name = "crates" },
-        { name = "tmux" },
+        -- { name = "calc" },
+        -- { name = "emoji" },
+        -- { name = "treesitter" },
+        -- { name = "crates" },
+        -- { name = "tmux" },
       },
       formatting = {
         format = function(entry, vim_item)
@@ -128,6 +128,6 @@ return {
           end
         end,
       },
-    })
+    }
   end,
 }
