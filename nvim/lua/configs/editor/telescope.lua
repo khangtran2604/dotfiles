@@ -1,10 +1,17 @@
-local actions = require "telescope.actions"
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
+  opts = function()
+    local conf = require "nvchad.configs.telescope"
+    local actions = require "telescope.actions"
 
-local options = {
-  defaults = {
-    file_ignore_patterns = { "node_modules", "vendor" },
-    set_env = { COLORTERM = "truecolor" },
-    mappings = {
+    conf.defaults.file_ignore_patterns = { "node_modules", "vendor" }
+    conf.defaults.set_env = { COLORTERM = "truecolor" }
+    conf.defaults.mappings = {
       i = {
         ["<C-u>"] = false,
         ["<C-d>"] = false,
@@ -24,17 +31,21 @@ local options = {
         ["<C-b>"] = actions.preview_scrolling_up,
         ["<C-f>"] = actions.preview_scrolling_down,
       },
-    },
-  },
-  extensions = {
-    fzf = {
+    }
+
+    conf.extensions.fzf = {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true, -- override the file sorter
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      -- the default case_mode is "smart_case"
-    },
-  },
-}
+    }
 
-return options
+    conf.extensions["ui-select"] = {
+      require("telescope.themes").get_dropdown {},
+    }
+
+    conf.extensions_list = { "fzf", "ui-select" }
+
+    return conf
+  end,
+}

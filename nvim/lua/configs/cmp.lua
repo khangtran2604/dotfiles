@@ -116,10 +116,9 @@ return {
             -- Source
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
-              nvim_lua = "[Lua]",
               luasnip = "[LuaSnip]",
               buffer = "[Buffer]",
-              latex_symbols = "[LaTeX]",
+              nvim_lua = "[Lua]",
             })[entry.source.name]
             return vim_item
           else
