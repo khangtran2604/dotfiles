@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  event = "BufRead",
+  event = { "LspAttach", "BufReadPost", "BufNewFile" },
   config = function()
     require("conform").setup {
       lsp_fallback = true,
@@ -20,8 +20,16 @@ return {
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 2500,
         lsp_fallback = true,
+      },
+      formatters = {
+        prettier = {
+          prepend_args = { "--prose-wrap", "always" },
+        },
+        -- black = {
+        --   prepend_args = { "--line-length", "79" },
+        -- },
       },
     }
 
