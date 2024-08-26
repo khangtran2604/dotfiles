@@ -17,6 +17,8 @@ local opts = { noremap = true, silent = true }
 
 local map = vim.keymap.set
 
+map({ "v", "n" }, "x", '"_x', { desc = "Delete without yanking" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<leader>wf", ":w")
