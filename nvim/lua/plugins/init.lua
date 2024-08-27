@@ -31,4 +31,5 @@ return {
   { import = "configs.utility.scroll", enabled = s.utility.scroll },
   { import = "configs.utility.indent-blankline", enabled = s.utility.indent_blankline },
   { import = "configs.utility.ts-context-commentstring", enabled = s.utility.ts_context_commentstring },
+  { import = "configs.utility.typescript-tools", enabled = s.utility.typescript_tools },
 }

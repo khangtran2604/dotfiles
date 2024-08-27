@@ -32,6 +32,7 @@ M.utility = {
   scroll = true,
   indent_blankline = true,
   ts_context_commentstring = true,
+  typescript_tools = false,
 }
 
 return M
