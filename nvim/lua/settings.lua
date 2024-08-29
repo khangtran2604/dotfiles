@@ -33,6 +33,7 @@ M.utility = {
   indent_blankline = true,
   ts_context_commentstring = true,
   typescript_tools = false,
+  nvim_surround = true,
 }
 
 return M
