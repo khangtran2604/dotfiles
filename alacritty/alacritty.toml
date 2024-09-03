@@ -1,3 +1,7 @@
+import = [
+ "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
 [env]
 TERM = "xterm-256color"
 
@@ -14,34 +18,6 @@ offset.y = 5
 [colors]
 draw_bold_text_with_bright_colors = true
 transparent_background_colors = true
-
-# Colors (Ayu Dark)
-# Default colors
-[colors.primary]
-background = '#0A0E14'
-foreground = '#B3B1AD'
-
-# Normal colors
-[colors.normal]
-black   = '#01060E'
-red     = '#EA6C73'
-green   = '#91B362'
-yellow  = '#F9AF4F'
-blue    = '#53BDFA'
-magenta = '#FAE994'
-cyan    = '#90E1C6'
-white   = '#C7C7C7'
-
-# Bright colors
-[colors.bright]
-black   = '#686868'
-red     = '#F07178'
-green   = '#C2D94C'
-yellow  = '#FFB454'
-blue    = '#59C2FF'
-magenta = '#FFEE99'
-cyan    = '#95E6CB'
-white   = '#FFFFFF'
 
 [window]
 decorations = 'Buttonless'
