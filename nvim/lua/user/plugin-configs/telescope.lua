@@ -21,6 +21,6 @@ require("telescope").setup({
 				["<C-f>"] = require("telescope.actions").preview_scrolling_down,
 			},
 		},
-		winblend = 10,
+		-- winblend = 10,
 	},
 })
