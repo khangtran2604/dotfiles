@@ -125,3 +125,6 @@ map("n", "<leader>rm", function()
 		},
 	})
 end, { desc = "Remove Unused Imports" })
+
+-- Bufferline
+map("n", "<leader>x", "<CMD>BufferLinePickClose<CR>", { desc = "Bufferline pick close" })
