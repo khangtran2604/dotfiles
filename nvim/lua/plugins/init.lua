@@ -20,6 +20,7 @@ return {
 	{ import = "plugin-configs.surround", enabled = plugins.surround },
 	{ import = "plugin-configs.ufo", enabled = plugins.ufo },
 	{ import = "plugin-configs.windline", enabled = plugins.windline },
+	{ import = "plugin-configs.lualine", enabled = plugins.lualine },
 	{ import = "plugin-configs.zenmode", enabled = plugins.zenmode },
 	{ import = "plugin-configs.flash", enabled = plugins.flash },
 	{ import = "plugin-configs.harpoon", enabled = plugins.harpoon },
