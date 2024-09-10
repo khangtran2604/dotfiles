@@ -3,7 +3,7 @@ return {
 	event = "VimEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		-- Adapted from: https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes/onedark.lua
+		-- Adapted from: https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes
 		local colors = {
 			color2 = "#0f1419",
 			color3 = "#ffee99",
@@ -80,7 +80,7 @@ return {
 
 		local diff = {
 			"diff",
-			colored = false,
+			colored = true,
 			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 			cond = hide_in_width,
 		}
@@ -100,9 +100,8 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { "branch" },
-				lualine_c = { filename },
+				lualine_c = { filename, diagnostics },
 				lualine_x = {
-					diagnostics,
 					diff,
 					{ "encoding", cond = hide_in_width },
 					{ "filetype", cond = hide_in_width },
