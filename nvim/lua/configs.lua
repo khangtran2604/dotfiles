@@ -27,6 +27,7 @@ M.plugins = {
 	noice = true,
 	notify = true,
 	none_ls = false,
+	neogit = true,
 }
 
 return M
