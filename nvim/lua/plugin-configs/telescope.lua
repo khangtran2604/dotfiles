@@ -14,7 +14,7 @@ return {
 
 		telescope.setup({
 			defaults = {
-				file_ignore_patterns = { "node_modules", "vendor" },
+				file_ignore_patterns = { "node_modules", "vendor", "venv", "__pycache__" },
 				mappings = {
 					i = {
 						["<C-u>"] = false,
