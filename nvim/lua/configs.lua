@@ -28,6 +28,7 @@ M.plugins = {
 	notify = true,
 	none_ls = false,
 	neogit = true,
+	trouble = true,
 }
 
 return M

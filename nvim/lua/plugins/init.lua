@@ -32,4 +32,5 @@ return {
 	{ import = "plugin-configs.noice", enabled = plugins.noice },
 	{ import = "plugin-configs.none-ls", enabled = plugins.none_ls },
 	{ import = "plugin-configs.neogit", enabled = plugins.neogit },
+	{ import = "plugin-configs.trouble", enabled = plugins.trouble },
 }
