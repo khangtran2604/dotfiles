@@ -13,39 +13,69 @@ return {
 			color10 = "#36a3d9",
 			color8 = "#f07178",
 			color9 = "#3e4b59",
+			transparent = "NONE",
 		}
 
 		local ayu_dark = {
 			visual = {
 				a = { fg = colors.color2, bg = colors.color3, gui = "bold" },
-				b = { fg = colors.color4, bg = colors.color5 },
+				b = { fg = colors.color4, bg = colors.transparent },
+				c = { fg = colors.color4, bg = colors.transparent },
 			},
 			replace = {
 				a = { fg = colors.color2, bg = colors.color8, gui = "bold" },
-				b = { fg = colors.color4, bg = colors.color5 },
+				b = { fg = colors.color4, bg = colors.transparent },
+				c = { fg = colors.color4, bg = colors.transparent },
 			},
 			inactive = {
-				c = { fg = colors.color4, bg = colors.color2 },
-				a = { fg = colors.color4, bg = colors.color5, gui = "bold" },
-				b = { fg = colors.color4, bg = colors.color5 },
+				c = { fg = colors.color4, bg = colors.transparent },
+				a = { fg = colors.color4, bg = colors.transparent, gui = "bold" },
+				b = { fg = colors.color4, bg = colors.transparent },
 			},
 			normal = {
-				c = { fg = colors.color9, bg = colors.color2 },
+				c = { fg = colors.color9, bg = colors.transparent },
 				a = { fg = colors.color2, bg = colors.color10, gui = "bold" },
-				b = { fg = colors.color4, bg = colors.color5 },
+				b = { fg = colors.color4, bg = colors.transparent },
 			},
 			insert = {
 				a = { fg = colors.color2, bg = colors.color13, gui = "bold" },
-				b = { fg = colors.color4, bg = colors.color5 },
+				b = { fg = colors.color4, bg = colors.transparent },
+				c = { fg = colors.color4, bg = colors.transparent },
 			},
 		}
 
+		-- local ayu_dark = {
+		-- 	visual = {
+		-- 		a = { fg = colors.color2, bg = colors.color3, gui = "bold" },
+		-- 		b = { fg = colors.color4, bg = colors.color5 },
+		-- 	},
+		-- 	replace = {
+		-- 		a = { fg = colors.color2, bg = colors.color8, gui = "bold" },
+		-- 		b = { fg = colors.color4, bg = colors.color5 },
+		-- 	},
+		-- 	inactive = {
+		-- 		c = { fg = colors.color4, bg = colors.color2 },
+		-- 		a = { fg = colors.color4, bg = colors.color5, gui = "bold" },
+		-- 		b = { fg = colors.color4, bg = colors.color5 },
+		-- 	},
+		-- 	normal = {
+		-- 		c = { fg = colors.color9, bg = colors.color2 },
+		-- 		a = { fg = colors.color2, bg = colors.color10, gui = "bold" },
+		-- 		b = { fg = colors.color4, bg = colors.color5 },
+		-- 	},
+		-- 	insert = {
+		-- 		a = { fg = colors.color2, bg = colors.color13, gui = "bold" },
+		-- 		b = { fg = colors.color4, bg = colors.color5 },
+		-- 	},
+		-- }
+
 		-- Import color theme based on environment variable NVIM_THEME
-		local env_var_nvim_theme = os.getenv("NVIM_THEME") or "nord"
+		-- local env_var_nvim_theme = os.getenv("NVIM_THEME") or "nord"
+		local env_var_nvim_theme = "ayu_dark"
 
 		-- Define a table of themes
 		local themes = {
-			onedark = ayu_dark,
+			ayu_dark = ayu_dark,
 			-- nord = "nord",
 		}
 
@@ -61,6 +91,12 @@ return {
 			"filename",
 			file_status = true, -- displays file status (readonly status, modified status)
 			path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+			color = { fg = "#ffffff" },
+		}
+
+		local branch = {
+			"branch",
+			color = { fg = "#ff9900", gui = "bold" },
 		}
 
 		local hide_in_width = function()
@@ -99,7 +135,7 @@ return {
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "branch" },
+				lualine_b = { branch },
 				lualine_c = { filename, diagnostics },
 				lualine_x = {
 					diff,
