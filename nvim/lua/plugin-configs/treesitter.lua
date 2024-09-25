@@ -35,6 +35,7 @@ return {
 				"python",
 				"toml",
 				"rust",
+				"go",
 			},
 			auto_install = true,
 			highlight = {
