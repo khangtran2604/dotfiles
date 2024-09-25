@@ -29,6 +29,7 @@ M.plugins = {
 	none_ls = false,
 	neogit = true,
 	trouble = true,
+	avante = true,
 }
 
 return M

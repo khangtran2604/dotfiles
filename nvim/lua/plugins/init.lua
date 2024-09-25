@@ -33,4 +33,5 @@ return {
 	{ import = "plugin-configs.none-ls", enabled = plugins.none_ls },
 	{ import = "plugin-configs.neogit", enabled = plugins.neogit },
 	{ import = "plugin-configs.trouble", enabled = plugins.trouble },
+	{ import = "plugin-configs.avante", enabled = plugins.avante },
 }
