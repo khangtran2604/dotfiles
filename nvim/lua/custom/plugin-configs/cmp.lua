@@ -1,4 +1,5 @@
 local cmp = require "cmp"
+local luasnip = require "luasnip"
 
 cmp.setup {
   -- Your custom configurations go here
