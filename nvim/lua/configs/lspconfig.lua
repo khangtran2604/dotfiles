@@ -1,6 +1,5 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
-
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
@@ -73,3 +72,6 @@ map("<leader>rm", function()
     },
   }
 end, "Remove Unused Imports")
+
+-- Pyright LSP
+require "custom.lsp-servers.pyright"
