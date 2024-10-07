@@ -1,5 +1,6 @@
-local map = vim.keymap.set
-
+local map = function(mode, key, result)
+  vim.keymap.set(mode, key, result, { noremap = true, silent = true })
+end
 -- delete without yanking
 map({ "v", "n" }, "x", '"_x')
 -- fast escape
@@ -30,16 +31,16 @@ map("n", "H", "^")
 map("n", "L", "g_")
 -- Move selected line / block of text up/down in visual mode
 map(
-	"v",
-	"J",
-	":m '>+1<CR>gv=gv",
-	{ desc = "Move selected line / block of text down in visual mode", noremap = true, silent = true }
+  "v",
+  "J",
+  ":m '>+1<CR>gv=gv",
+  { desc = "Move selected line / block of text down in visual mode", noremap = true, silent = true }
 )
 map(
-	"v",
-	"K",
-	":m '<-2<CR>gv=gv",
-	{ desc = "Move selected line / block of text up in visual mode", noremap = true, silent = true }
+  "v",
+  "K",
+  ":m '<-2<CR>gv=gv",
+  { desc = "Move selected line / block of text up in visual mode", noremap = true, silent = true }
 )
 -- Increase panel size
 map("n", "=", ":vertical resize +2<CR>", { desc = "Increase vertical size +2", silent = true })
@@ -64,8 +65,11 @@ map("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>")
 map("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>")
 map("n", "<leader>X", "<CMD>BufferLineCloseOthers<CR>")
 map("n", "<leader>x", function()
-	require("bufdelete").bufdelete(0, true)
+  require("bufdelete").bufdelete(0, true)
 end)
 
 -- Zenmode
 map("n", "<leader>zm", "<CMD>ZenMode<CR>")
+map("n", "<leader>rn", function()
+  vim.lsp.buf.rename()
+end)
