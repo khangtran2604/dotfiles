@@ -24,6 +24,9 @@ local options = {
     black = {
       prepend_args = { "--fast" },
     },
+    prettier = {
+      prepend_args = { "--prose-wrap", "always" },
+    },
   },
 }
 
