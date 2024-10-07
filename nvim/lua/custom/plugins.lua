@@ -42,4 +42,5 @@ return {
   -- { import = "custom.plugin-configs.neogit", enabled = plugins.neogit },
   { import = "custom.plugin-configs.trouble", enabled = plugins.trouble },
   { import = "custom.plugin-configs.avante", enabled = plugins.avante },
+  { import = "custom.plugin-configs.lazygit", enabled = plugins.lazygit }
 }
