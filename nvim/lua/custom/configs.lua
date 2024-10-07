@@ -30,6 +30,7 @@ M.plugins = {
   neogit = true,
   trouble = true,
   avante = true,
+  lazygit = true
 }
 
 return M
