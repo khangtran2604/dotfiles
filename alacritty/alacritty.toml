@@ -3,7 +3,7 @@ import = [
 ]
 
 [env]
-TERM = "xterm-256color"
+TERM = "screen-256color"
 
 [shell]
 program = "/bin/zsh"
@@ -37,3 +37,12 @@ padding = { x = 3, y = 3 }
 [scrolling]
 history = 5000
 
+[[keyboard.bindings]]
+key = "C"
+mods = "Command"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Command"
+action = "Paste"
