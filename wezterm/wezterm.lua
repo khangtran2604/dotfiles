@@ -140,6 +140,16 @@ config.key_tables = {
 	},
 }
 
+-- local dimmer = { brightness = 0.9 }
+config.background = {
+	{
+		source = {
+			File = "/Users/khangtran/.config/wezterm/bg-blurred-darker.png",
+		},
+		-- hsb = dimmer,
+	},
+}
+
 -- Returns our config to be evaluated. We must always do this at the bottom of this file
 return config
 
