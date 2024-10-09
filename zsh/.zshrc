@@ -160,7 +160,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # llvm end
 #
 # claude API KEY
-export ANTHROPIC_API_KEY=''
+# export ANTHROPIC_API_KEY=''
 
 # neovim
 
