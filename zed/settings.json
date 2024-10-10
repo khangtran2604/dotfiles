@@ -1,0 +1,77 @@
+{
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_family": "FiraCode Nerd Font",
+  "theme": "Ayu Dark",
+  "vim_mode": true,
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "vertical_scroll_margin": 0,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+  // "tab_bar": {
+  //   "show": false
+  // },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "formatter": {
+    "language_server": {
+      "name": "biome"
+    }
+  },
+  "tab_size": 2,
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/out",
+    "**/dist",
+    "**/.husky",
+    "**/.turbo",
+    "**/.vscode-test",
+    "**/.vscode",
+    "**/.next",
+    "**/.storybook",
+    "**/node_modules"
+  ],
+  "experimental.theme_overrides": {
+    "background.appearance": "blurred",
+    // "background": "#4c464290",
+    // "editor.background": "#00000030",
+    // "editor.gutter.background": "#00000030",
+    // "tab_bar.background": "#00000030",
+    // "terminal.background": "#00000030",
+    // "toolbar.background": "#00000030",
+    // "tab.active_background": "#28282820",
+    "tab.inactive_background": "#00000000",
+    // "status_bar.background": "#00000030",
+    // "title_bar.background": "#00000030",
+    // "panel.background": "#00000030",
+    "border.variant": "#00000000",
+    "scrollbar.track.border": "#00000000",
+    "editor.active_line.background": "#00000000"
+  }
+}
