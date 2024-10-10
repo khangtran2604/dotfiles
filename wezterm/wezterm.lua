@@ -11,14 +11,14 @@ config.color_scheme = "ayu"
 
 -- # FONT
 -- Choose your favourite font, make sure it's installed on your machine
-config.font = wezterm.font({ family = "FiraCode Nerd Font" })
+config.font = wezterm.font({ family = "FiraCode Nerd Font Mono" })
 -- And a font size that won't have you squinting
 config.font_size = 15
 
 -- # WINDOW STYLE
 -- Slightly transparent and blurred background
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 30
+config.window_background_opacity = 0.8
+config.macos_window_background_blur = 10
 -- Removes the title bar, leaving only the tab bar. Keeps
 -- the ability to resize by dragging the window's edges.
 -- On macOS, 'RESIZE|INTEGRATED_BUTTONS' also looks nice if
@@ -154,7 +154,7 @@ config.key_tables = {
 config.background = {
 	{
 		source = {
-			File = "/Users/khangtran/.config/wezterm/bg-blurred-darker.png",
+			File = "/Users/khang.tm/.config/wezterm/bg-blurred-darker.png",
 		},
 		-- hsb = dimmer,
 	},

@@ -12,7 +12,7 @@ map("i", "jk", "<ESC>")
 map("n", "<ESC>", "<CMD>noh<CR>")
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Fast saving
-map({ "n", "s" }, "<leader>wf", "<cmd>w<cr><esc>")
+map({ "n", "s" }, "<leader>wf", "<cmd>w!<cr>")
 -- Fast quit
 map("n", "<leader>q", "<cmd>confirm q<cr>")
 -- Fast quit all
