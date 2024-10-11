@@ -4,6 +4,10 @@
 vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<C-s>")
 vim.keymap.del("n", "<leader>bd")
+vim.keymap.del("n", "<leader>w")
+vim.keymap.del("n", "<leader>wd")
+vim.keymap.del("n", "<leader>-")
+vim.keymap.del("n", "<leader>|")
 local map = require("config.core.utils").map
 
 -- delete without yanking
@@ -15,7 +19,7 @@ map("n", "<ESC>", "<CMD>noh<CR>")
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Fast saving
 -- map({ "n", "s" }, "<leader>wf", "<cmd>w!<cr>")
-map({ "i", "x", "n", "s" }, "<leader>wf", "<cmd>w<cr><esc>", { desc = "Save File" })
+map({ "i", "x", "n", "s" }, "<leader>wf", "<cmd>w<cr><esc>", { desc = "Save File", silent = true })
 -- Fast quit
 map("n", "<leader>q", "<cmd>confirm q<cr>")
 -- Fast quit all
