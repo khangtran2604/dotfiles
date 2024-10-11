@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.keymap.del("n", "<leader>l")
+vim.keymap.del("n", "<C-s>")
+vim.keymap.del("n", "<leader>bd")
 local map = require("config.core.utils").map
 
 -- delete without yanking
@@ -12,7 +14,8 @@ map("i", "jk", "<ESC>")
 map("n", "<ESC>", "<CMD>noh<CR>")
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Fast saving
-map({ "n", "s" }, "<leader>wf", "<cmd>w!<cr>")
+-- map({ "n", "s" }, "<leader>wf", "<cmd>w!<cr>")
+map({ "i", "x", "n", "s" }, "<leader>wf", "<cmd>w<cr><esc>", { desc = "Save File" })
 -- Fast quit
 map("n", "<leader>q", "<cmd>confirm q<cr>")
 -- Fast quit all
@@ -78,7 +81,7 @@ map("n", "<leader>fd", "<CMD>Telescope diagnostics<CR>")
 map("n", "<leader>;", "<CMD>Telescope resume<CR>")
 map("n", "<leader>fc", "<CMD>Telescope find_files cwd=" .. vim.fn.stdpath("config") .. "<CR>")
 map("n", "<leader>fk", "<CMD>Telescope keymaps<CR>")
-map("n", "<leader>ls", "<CMD>Telescope lsp_document_symbols<CR>")
+-- map("n", "<leader>ls", "<CMD>Telescope lsp_document_symbols<CR>")
 map("n", "<leader>fn", "<CMD>Telescope noice<CR>")
 map("n", "<leader>fp", "<CMD>Telescope projects<CR>")
 
@@ -89,9 +92,7 @@ map("n", "<leader>e", "<CMD>Neotree<CR>")
 map("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>")
 map("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>")
 map("n", "<leader>X", "<CMD>BufferLineCloseOthers<CR>")
-map("n", "<leader>x", function()
-  require("bufdelete").bufdelete(0, true)
-end)
+map("n", "<leader>x", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 
 -- Zenmode
 map("n", "<leader>zm", "<CMD>ZenMode<CR>")

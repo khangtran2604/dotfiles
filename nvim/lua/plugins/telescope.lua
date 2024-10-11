@@ -6,6 +6,7 @@ return {
       { "<leader>,", false },
       { "<leader><space>", "<CMD>Telescope buffers<CR>" },
       { "<leader>fo", builtin.oldfiles },
+      -- { "<leader>fo", builtin.find_files },
       {
         "<leader>fg",
         function()
@@ -20,7 +21,7 @@ return {
 
     return {
       defaults = {
-        file_ignore_patterns = { "node_modules", "vendor", "venv", "__pycache__" },
+        -- file_ignore_patterns = { "node_modules", "vendor", "venv", "__pycache__" },
         mappings = {
           i = {
             ["<C-u>"] = false,
