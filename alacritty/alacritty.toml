@@ -1,6 +1,4 @@
-import = [
- "~/.config/alacritty/ayu_dark.toml"
-]
+import = ["~/.config/alacritty/ayu_dark.toml"]
 
 [env]
 TERM = "screen-256color"
@@ -12,10 +10,7 @@ args = ["-l"]
 # Hack Nerd Font: https://github.com/ryanoasis/nerd-fonts/releases
 # Maple Font: https://github.com/subframe7536/maple-font
 [font]
-normal = { family = "FiraCode Nerd Font Mono", style = "Regular"}
-bold = { family = "FiraCode Nerd Font Mono", style = "Bold"}
-italic = { family = "FiraCode Nerd Font Mono", style = "Light Italic"}
-bold_italic = { family = "FiraCode Nerd Font Mono", style = "Bold Italic"}
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
 
 size = 15
 # offset.x = 0
@@ -28,7 +23,7 @@ transparent_background_colors = true
 
 [window]
 decorations = 'Buttonless'
-opacity = 0.95
+opacity = 0.5
 blur = true
 dynamic_padding = true
 decorations_theme_variant = 'Dark'
