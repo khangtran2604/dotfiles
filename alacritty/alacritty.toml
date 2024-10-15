@@ -10,12 +10,12 @@ args = ["-l"]
 # Hack Nerd Font: https://github.com/ryanoasis/nerd-fonts/releases
 # Maple Font: https://github.com/subframe7536/maple-font
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Regular" }
+normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 
-size = 15
+size = 14
 # offset.x = 0
-offset.y = 4
-glyph_offset.y = 2
+offset.y = 2
+glyph_offset.y = 1
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -28,6 +28,10 @@ blur = true
 dynamic_padding = true
 decorations_theme_variant = 'Dark'
 padding = { x = 3, y = 3 }
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+vi_mode_style = { shape = "Beam", blinking = "Off" }
 
 [scrolling]
 history = 5000
