@@ -15,7 +15,7 @@ map({ "v", "n" }, "x", '"_x')
 -- fast escape
 map("i", "jk", "<ESC>")
 -- general clear highlights
-map("n", "<ESC>", "<CMD>noh<CR>")
+-- map("n", "<ESC>", "<CMD>noh<CR>")
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Fast saving
 -- map({ "n", "s" }, "<leader>wf", "<cmd>w!<cr>")

@@ -12,7 +12,7 @@ args = ["-l"]
 [font]
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 
-size = 14
+size = 15
 # offset.x = 0
 offset.y = 2
 glyph_offset.y = 1
@@ -23,7 +23,7 @@ transparent_background_colors = true
 
 [window]
 decorations = 'Buttonless'
-opacity = 0.5
+opacity = 0.92
 blur = true
 dynamic_padding = true
 decorations_theme_variant = 'Dark'

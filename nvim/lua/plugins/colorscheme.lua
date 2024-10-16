@@ -23,6 +23,11 @@ return {
     require("catppuccin").setup({
       flavour = "mocha",
       transparent_background = true,
+      integrations = {
+        harpoon = true,
+        noice = true,
+        notify = true,
+      },
     })
 
     vim.cmd.colorscheme("catppuccin-mocha")
