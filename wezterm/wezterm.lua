@@ -86,14 +86,14 @@ config = {
 		"/bin/zsh",
 		"--login",
 		"--interactive",
-		-- "-c",
-		-- [[
-		--   if command -v tmux >/dev/null 2>&1; then
-		--     tmux attach || tmux new;
-		--   else
-		--     exec zsh;
-		--   fi
-		--   ]],
+		"-c",
+		[[
+		  if command -v tmux >/dev/null 2>&1; then
+		    tmux attach || tmux new;
+		  else
+		    exec zsh;
+		  fi
+		  ]],
 	},
 
 	-- For example, changing the color scheme:
