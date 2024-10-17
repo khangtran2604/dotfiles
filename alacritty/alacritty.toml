@@ -17,13 +17,16 @@ size = 15
 offset.y = 2
 glyph_offset.y = 1
 
+[selection]
+save_to_clipboard = true
+
 [colors]
 draw_bold_text_with_bright_colors = true
 transparent_background_colors = true
 
 [window]
 decorations = 'Buttonless'
-opacity = 0.92
+opacity = 0.6
 blur = true
 dynamic_padding = true
 decorations_theme_variant = 'Dark'
