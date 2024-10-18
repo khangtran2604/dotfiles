@@ -77,7 +77,7 @@ map("t", "<C-l>", "wincmd l") -- Navigate Right
 map("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
 map("n", "<leader>fg", "<CMD>Telescope git_files hidden=true<CR>")
 map("n", "<leader>fw", "<CMD>Telescope live_grep<CR>")
-map("n", "<leader>fW", "<CMD>Telescope live_grep hidden=true no_ignore=true<CR>")
+-- map("n", "<leader>fW", "<CMD>Telescope live_grep hidden=true no_ignore=true<CR>")
 map("n", "<leader>fh", "<CMD>Telescope help_tags<CR>")
 map("n", "<leader>fa", "<CMD>Telescope find_files no_ignore=true hidden=true<CR>")
 map("n", "<leader>/", function()

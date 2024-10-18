@@ -1,7 +1,23 @@
 return {
   "nvim-telescope/telescope.nvim",
   keys = function()
+    local telescope = require("telescope")
     local builtin = require("telescope.builtin")
+
+    local function grep_prompt_folder()
+      local root_dir = vim.fn.getcwd()
+
+      local hint_prompt = "(Root dir is: " .. root_dir .. ")"
+      vim.ui.input({ prompt = "Enter folder path" .. hint_prompt .. ": " }, function(input)
+        if input then
+          builtin.live_grep({
+            search_dirs = { vim.fn.getcwd() .. "/" .. input },
+            prompt_title = "Live Grep in " .. input,
+          })
+        end
+      end)
+    end
+
     return {
       { "<leader>,", false },
       { "<leader><space>", "<CMD>Telescope buffers<CR>" },
@@ -14,6 +30,8 @@ return {
         end,
         desc = "Find Plugin File",
       },
+
+      { "<leader>fW", grep_prompt_folder },
     }
   end,
   opts = function()
